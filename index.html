@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile App Project — Workflow Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-deep: #ECE8DD;
+  --bg-card: #FBF8F1;
+  --bg-card-hover: #F7F2E8;
+  --bg-elevated: #FFFFFF;
+  --ink: #2A2F2A;
+  --ink-soft: #5C625C;
+  --ink-mute: #6C726C;
+  --rule: #D9D3C3;
+  --rule-soft: #E8E2D4;
+  --accent: #2D5C3E;
+  --accent-soft: #4A7A5C;
+  --accent-light: #DCEAE0;
+  --accent-pale: #EDF3EE;
+  --warm: #B85C2E;
+  --warm-pale: #F5EDE6;
+  --gold: #8B6914;
+  --gold-pale: #F5EDD8;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --shadow-sm: 0 1px 3px rgba(42,47,42,0.05);
+  --shadow-md: 0 4px 16px rgba(42,47,42,0.07);
+  --shadow-lg: 0 12px 40px rgba(42,47,42,0.10);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.topstrip {
+  padding: 28px 56px 22px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.brand-mark {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144;
+}
+.brand-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-mute);
+  margin-left: 14px;
+}
+.meta-num {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--ink);
+  font-weight: 500;
+  font-variation-settings: "opsz" 144;
+}
+.meta-sub { font-size: 12px; color: var(--ink-soft); margin-left: 6px; }
+
+/* ── Main ── */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 56px 80px;
+}
+
+/* ── Lead ── */
+.lead {
+  padding-bottom: 28px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+.lead-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--warm);
+  margin-bottom: 12px;
+}
+.lead-title {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  font-variation-settings: "opsz" 144;
+}
+.lead-title em { font-style: italic; color: var(--accent); }
+.lead-body {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  max-width: 700px;
+  line-height: 1.6;
+}
+.lead-method {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  max-width: 700px;
+  line-height: 1.65;
+}
+.method-tag {
+  display: inline;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.method-sdd {
+  background: var(--accent-pale);
+  color: var(--accent);
+  border: 1px solid var(--accent-light);
+}
+.method-vibe {
+  background: var(--warm-pale);
+  color: var(--warm);
+  border: 1px solid #EDD5C5;
+}
+
+/* ── Phase frame ── */
+.phase {
+  margin-bottom: 32px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+.phase-head {
+  background: rgba(45,92,62,0.04);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  position: relative;
+}
+.phase-head::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--accent);
+}
+.phase-pill {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-variation-settings: "opsz" 144;
+  background: var(--accent-pale);
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--accent-light);
+  white-space: nowrap;
+}
+.phase-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144;
+}
+.phase-blurb {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-left: auto;
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 144;
+}
+.phase-steps {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Step card ── */
+.step-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.step-card:hover:not(.open) {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.step-card.open {
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow-lg);
+}
+
+.step-header {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 15px 18px;
+  cursor: pointer;
+  user-select: none;
+}
+.step-n {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  line-height: 1;
+  font-variation-settings: "opsz" 144;
+  transition: color 0.2s;
+}
+.step-card.open .step-n { color: var(--accent); }
+
+.step-header-info { min-width: 0; }
+.step-actors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.actor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px 2px 6px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+.actor-pill svg { width: 11px; height: 11px; flex-shrink: 0; }
+.ap-you  { background: var(--accent-pale); color: var(--accent); }
+.ap-web  { background: var(--warm-pale);   color: var(--warm);   }
+.ap-code { background: var(--gold-pale);   color: var(--gold);   }
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+  font-variation-settings: "opsz" 144;
+}
+.step-badge {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  background: var(--bg);
+}
+.step-toggle {
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-mute);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), color 0.2s;
+  flex-shrink: 0;
+}
+.step-card.open .step-toggle {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+/* ── Step body ── */
+.step-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+.step-card.open .step-body { max-height: 8000px; }
+.step-body-inner {
+  border-top: 1px solid var(--rule-soft);
+  padding: 6px 20px 24px;
+}
+
+/* Sections */
+.sec { padding-top: 20px; }
+.sec + .sec {
+  border-top: 1px dashed var(--rule);
+  margin-top: 20px;
+}
+.sec-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-soft);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-label::before {
+  content: '';
+  width: 12px; height: 1px;
+  background: var(--accent-soft);
+}
+.sec-body {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.sec-body p { color: var(--ink-soft); }
+.sec-body strong { color: var(--ink); font-weight: 600; }
+.sec-body code {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--accent-pale);
+  color: var(--accent);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ── Todo list ── */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 0;
+}
+.todo-item + .todo-item { border-top: 1px dotted var(--rule-soft); }
+.todo-icon {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ti-user { background: var(--accent-pale); color: var(--accent); }
+.ti-ai   { background: var(--warm-pale);   color: var(--warm);   }
+.todo-icon svg { width: 12px; height: 12px; }
+.todo-actor-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.todo-content { min-width: 0; flex: 1; }
+.todo-text {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.todo-text strong { color: var(--ink); font-weight: 600; }
+.todo-text code {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: var(--accent-pale);
+  color: var(--accent);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* Prompt block */
+.prompt-block {
+  margin-top: 10px;
+  background: linear-gradient(135deg, var(--accent-pale) 0%, transparent 100%);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 50px 14px 16px;
+  position: relative;
+}
+.prompt-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.prompt-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--accent-light);
+}
+.prompt-text {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.copy-prompt-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.copy-prompt-btn:hover {
+  background: var(--accent-pale);
+  color: var(--accent);
+  border-color: var(--accent-soft);
+}
+
+/* ── Artifacts ── */
+.artifacts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.artifact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-decoration: none;
+}
+.artifact-chip:hover {
+  background: var(--accent-pale);
+  border-color: var(--accent-soft);
+  transform: translateY(-1px);
+}
+.artifact-chip svg { width: 13px; height: 13px; color: var(--accent); flex-shrink: 0; }
+.artifact-chip-name {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.artifact-chip-note {
+  font-size: 11px;
+  color: var(--ink-mute);
+  font-style: italic;
+}
+.artifact-chip-action {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute);
+}
+.no-artifact {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-mute);
+  font-variation-settings: "opsz" 144;
+}
+
+/* ── Mockup grid ── */
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+.mockup-card {
+  background: var(--bg-deep);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.mockup-frame {
+  width: 100%;
+  aspect-ratio: 9/16;
+  background: linear-gradient(160deg, var(--accent-pale) 0%, var(--bg-deep) 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  border: 1px dashed var(--accent-light);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-mute);
+}
+
+/* ── Modal ── */
+.modal-bg {
+  position: fixed; inset: 0;
+  background: rgba(30,35,30,0.55);
+  backdrop-filter: blur(5px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 40px;
+}
+.modal-bg.open { display: flex; }
+.modal {
+  background: var(--bg-elevated);
+  border-radius: 14px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 32px 80px rgba(30,35,30,0.3);
+  overflow: hidden;
+  animation: pop 0.24s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.modal-head {
+  padding: 20px 26px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.modal-file-name {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.modal-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  background: var(--bg-deep);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+.modal-btns { display: flex; gap: 8px; }
+.btn {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s;
+}
+.btn:hover {
+  background: var(--accent-pale);
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+  color: #fff;
+}
+.btn-close {
+  margin-left: 12px;
+  border-left: 1px solid var(--rule);
+  padding-left: 18px;
+  border-radius: 6px;
+}
+.modal-body { flex: 1; overflow-y: auto; background: #FAF7EE; }
+.modal-body pre {
+  padding: 24px 32px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+/* ── Closing ── */
+.closing {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+.closing-em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144;
+}
+.closing-mono {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-mute);
+  margin-top: 6px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 5px; border: 2px solid var(--bg); }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .topstrip, .main { padding-left: 20px; padding-right: 20px; }
+  .lead-title { font-size: 30px; }
+  .phase-head { flex-wrap: wrap; }
+  .phase-blurb { margin-left: 0; margin-top: 4px; }
+  .step-header { grid-template-columns: 38px 1fr auto; }
+  .step-badge { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topstrip">
+  <div>
+    <span class="brand-mark">Playbook.</span>
+    <span class="brand-sub">Mobile App Workflow</span>
+  </div>
+  <div>
+    <span class="meta-num">14</span>
+    <span class="meta-sub">steps · 8 phases (incl. prereqs)</span>
+  </div>
+</header>
+
+<main class="main">
+  <div class="lead">
+    <div class="lead-eyebrow">Flutter · Claude Code · App Store</div>
+    <h1 class="lead-title">From idea to App Store, <em>fourteen steps at a time.</em></h1>
+    <p class="lead-body">A chronological workflow grouped by phase. Expand any step for what it achieves, step-by-step instructions with prompts, and the artifact templates it produces — each viewable and downloadable.</p>
+    <p class="lead-method">This workflow combines two approaches: <span class="method-tag method-sdd">Spec-Driven Development (SDD)</span> for Steps&nbsp;1–10 — where requirements, design, and a frozen spec are fully established before any code is written and slice-based building executes from that spec — followed by <span class="method-tag method-vibe">Vibe Coding</span> from Step&nbsp;11 onward, where the polish phase invites looser, more intuitive iteration: testing surfaces issues, but also legitimate scope additions, minor user-flow tweaks, and design refinements that didn't reveal themselves until you held a working build.</p>
+  </div>
+  <div id="phases-container"></div>
+  <div class="closing">
+    <div class="closing-em" aria-hidden="true">— end of playbook —</div>
+    <div class="closing-mono">Follow top to bottom for project N+1</div>
+  </div>
+</main>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()" role="dialog" aria-modal="true" aria-labelledby="modal-fname">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <span class="modal-file-name" id="modal-fname"></span>
+        <span class="modal-tag">template</span>
+      </div>
+      <div class="modal-btns">
+        <button class="btn" id="btn-copy" onclick="copyFile()" aria-label="Copy file contents to clipboard">Copy</button>
+        <button class="btn btn-primary" onclick="downloadFile()" aria-label="Download file">Download</button>
+        <button class="btn btn-close" onclick="closeModal()" aria-label="Close dialog">✕ Close</button>
+      </div>
+    </div>
+    <div class="modal-body"><pre id="modal-pre"></pre></div>
+  </div>
+</div>
+<!-- Screen-reader live region for copy announcements -->
+<div id="sr-status" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"></div>
+
+<script>
+// ─── ARTIFACT DATA (injected at build) ───────────────────────────────
+const ARTIFACT_FILES = {
+  "CLAUDE.md": "# Project: [App Name]\n\n> Master operating instructions for Claude Code. The \"Current phase\" line\n> below is the master switch \u2014 change it at phase transitions and all\n> behavior adjusts.\n\n---\n\n## Project overview\n\n[2\u20134 sentences describing what this app is, who it's for, and what problem it solves. Gives Claude context at every session start.]\n\n---\n\n## Current phase: [Define / Design / Reconcile / Plan / Build / Test / Ship]\n## Current slice: [N \u2014 name, or \"N/A \u2014 not building yet\"]\n## Last updated: YYYY-MM-DD\n\n---\n\n## Files in scope this phase\n\n- `requirements.md`\n- `design_system.md`\n- `screen_specs.md`\n- [`/docs/current/screens.md` \u2014 added after v1 freeze (Step 8)]\n- [`/docs/build_progress.md` \u2014 added after Step 9]\n\n## Files NOT auto-read\n\n- `/docs/spec/v1/*` \u2014 frozen historical reference, read only when explicitly checking original intent\n- `/docs/audits/*` \u2014 read only when fixing audit findings\n- `/docs/testing.md` \u2014 read only during testing phase\n\n---\n\n## Workflow rules\n\n### General\n- Read this file at session start\n- State the current phase + current slice (if any) back before doing anything\n- Use plan mode for architectural questions\n- Run `/compact` after each slice's MVP is verified working\n\n### Documentation discipline (active after v1 freeze)\n- `/docs/spec/v1/` is read-only after freeze. Never edit.\n- `/docs/current/` updates as code changes. Use doc-sync skill.\n- `/docs/decisions.md` is append-only. One line per deviation.\n\n### Phase transitions\n| From \u2192 To | Trigger |\n|---|---|\n| Define \u2192 Design | requirements.md has empty Open Questions section |\n| Design \u2192 Reconcile | mockups complete, design_system.md + screen_specs.md generated |\n| Reconcile \u2192 Plan | gap analysis clean, v1 freeze performed |\n| Plan \u2192 Build | build_progress.md created |\n| Build \u2192 Test | all slices in build_progress.md checked off |\n| Test \u2192 Ship | stress-test + code-review audits clean |\n| Ship \u2192 Done | submitted to App Store / Play Store |\n\nWhen transitioning, update the \"Current phase\" line above and adjust\n\"Files in scope\" accordingly.\n\n---\n\n## Active skills\n\n- `doc-sync` \u2014 keeps spec/current docs honest\n- `flutter-stress-test` \u2014 Phase VI audit\n- `flutter-code-review` \u2014 Phase VI audit\n- `app-store-prep` \u2014 Phase VII release audit\n\n---\n\n## Project-specific rules\n\n[Add anything Claude must know every session. Keep it short \u2014 long context\nbelongs in requirements.md or decisions.md. Examples:]\n\n- Tech stack: Flutter, Riverpod, Hive, GoRouter, fl_chart\n- Theme: [dark only / dual mode / light only]\n- Platform targets: iOS XX+, Android API XX+\n- Persistence: 100% local, no backend in v1\n- Naming conventions: snake_case files, PascalCase widgets, lowerCamelCase variables\n",
+  "build_progress.md": "# Build Progress\n\n> Lives at `/docs/build_progress.md`. Each slice is a self-contained unit of work that produces committable, working code. Slices are ordered by dependency \u2014 do not skip ahead. Mark each `[x]` when committed.\n>\n> **Slice count and ordering will vary by project** \u2014 use this template as a starting shape for format, not a constraint on the number of slices.\n\n### Slice 1: Project Setup & Theme\n> ~XX files | Foundation everything else depends on\n- [ ] Update `pubspec.yaml` with all dependencies ([list relevant packages: riverpod, go_router, hive, fl_chart, etc.])\n- [ ] Create folder structure (`lib/core/theme/`, `lib/core/models/`, `lib/core/widgets/`, `lib/core/utils/`, `lib/features/`)\n- [ ] Create `app_colors.dart` \u2014 all color tokens from design_system.md\n- [ ] Create `app_typography.dart` \u2014 all text styles from design_system.md\n- [ ] Create `app_spacing.dart` \u2014 spacing, radius, elevation tokens\n- [ ] Create `app_theme.dart` \u2014 ThemeData assembling colors + typography\n- [ ] Update `main.dart` \u2014 ProviderScope wrapper, GoRouter (initial route only), portrait lock\n- [ ] Verify: `flutter analyze` passes, app launches to first screen\n\n### Slice 2: Data Models & Storage\n> ~XX files | All Hive models, enums, adapters, and repository providers\n- [ ] Create enums: [list domain enums]\n- [ ] Create models with Hive annotations: [list models]\n- [ ] Run `build_runner` to generate TypeAdapters\n- [ ] Create `hive_init.dart` \u2014 register adapters, open boxes\n- [ ] Create repository providers (Riverpod): [list repositories with CRUD operations]\n- [ ] Create utility: [any model-related utilities, e.g., color assignment, ID generation]\n- [ ] Verify: `flutter analyze` passes, `flutter test` passes (add basic model unit tests)\n\n### Slice 3: Splash + Navigation Shell\n> ~XX files | Splash screen + bottom nav + all route definitions\n- [ ] Build `splash_screen.dart` \u2014 per design_system.md specifications (timing, fade, logo)\n- [ ] Create `main_scaffold.dart` \u2014 bottom nav bar (N tabs, styled per design_system.md)\n- [ ] Create empty shell screens for each tab\n- [ ] Update GoRouter \u2014 all routes per screen_specs.md\n- [ ] Wire Hive initialization into splash screen (init during animation, navigate when done)\n- [ ] Verify: app launches \u2192 splash \u2192 fades to first tab with working bottom nav\n\n### Slice 4: Shared UI Components\n> ~XX files | Reusable widgets used across multiple screens\n- [ ] `cta_button.dart` \u2014 all variants (filled, outline, disabled, secondary, danger)\n- [ ] `app_text_input.dart` \u2014 styled text input with focus state\n- [ ] `app_toggle.dart` \u2014 custom toggle switch\n- [ ] `chip_selector.dart` \u2014 horizontal chip row, conditional rendering rules\n- [ ] `app_card.dart` \u2014 standard card + variants\n- [ ] `app_bottom_sheet.dart` \u2014 bottom sheet wrapper (drag handle, dim overlay, configurable height)\n- [ ] `app_progress_bar.dart` \u2014 track + fill with custom color\n- [ ] `icon_buttons.dart` \u2014 delete + close + other reusable icon buttons\n- [ ] Verify: `flutter analyze` passes (widgets can be visually tested in later slices)\n\n### Slice 5: [First Feature \u2014 Create Screen]\n> ~XX files | Full form with persistence\n- [ ] `[feature]_create_screen.dart` \u2014 screen layout per spec (screen XX)\n- [ ] Reusable form widgets per spec\n- [ ] Create Riverpod provider for form state (validation rules per spec)\n- [ ] Save logic: create record in Hive, navigate back to dashboard\n- [ ] Handle: save disabled until required fields, cancel discards, PopScope for Android back\n- [ ] Verify: can create item, data persists across app restart\n\n### Slice 6: [First Feature \u2014 List / Dashboard]\n> ~XX files | Empty + filled states, cards, drag-to-reorder\n- [ ] `dashboard_screen.dart` \u2014 empty state + filled state per spec\n- [ ] Card widget (per design_system.md specs)\n- [ ] Visualization widget (sparkline / chart / preview)\n- [ ] Utilities: time-ago formatting, variance calculation, etc.\n- [ ] Drag-to-reorder with `ReorderableListView`\n- [ ] Verify: dashboard shows created items, visualizations render, drag-to-reorder persists\n\n### Slice 7: [Detail Screen \u2014 Layout & Stats]\n> ~XX files | Detail screen core: action bar, stats, empty state, delete\n- [ ] `[feature]_detail_screen.dart` \u2014 screen layout per spec\n- [ ] Action bar: Back, Edit, Delete buttons\n- [ ] Stats table widget (columns per spec)\n- [ ] Empty state per spec\n- [ ] Delete confirmation dialog\n- [ ] Verify: navigate from list \u2192 detail, stats display correctly, delete works\n\n### Slice 8: [Detail Screen \u2014 Chart & Progress]\n> ~XX files | Chart + per-item progress cards\n- [ ] Chart widget \u2014 type per spec (line / bar / etc.), axis ranges, legend\n- [ ] Progress card widget \u2014 conditional rendering rules per spec\n- [ ] Utilities: data transformation (carry-forward, percentage calc, etc.)\n- [ ] Verify: chart renders with real data, progress bars fill correctly\n\n### Slice 9: [Add Entry / Action Bottom Sheet]\n> ~XX files | Bottom sheet for primary action\n- [ ] `add_entry_sheet.dart` \u2014 bottom sheet UI per spec\n- [ ] Input rows per spec (dot codes, hint text, validation)\n- [ ] Save logic: create record in Hive\n- [ ] Handle edge cases: first entry, all fields empty, dismiss\n- [ ] Verify: can add entries, detail screen refreshes, edge cases handled\n\n### Slice 10: [Edit Screen]\n> ~XX files | Edit form pre-populated with existing data\n- [ ] `[feature]_edit_screen.dart` \u2014 screen layout per spec, pre-populated\n- [ ] Riverpod provider for edit form state (change tracking)\n- [ ] Add/remove items, cascading deletes per spec\n- [ ] Save disabled until at least one change, cancel discards\n- [ ] Verify: edit persists, deletion works, cascading rules respected\n\n### Slice 11: [Secondary Feature, e.g., Habit Tracker]\n> ~XX files | Grid, create dialog, toggle, streak, reorder\n- [ ] `[feature]_screen.dart` \u2014 screen layout per spec\n- [ ] Today's progress card\n- [ ] Grid / rolling window per spec\n- [ ] Item rows per spec\n- [ ] Toggle / interaction logic\n- [ ] Create dialog\n- [ ] Empty state\n- [ ] Drag-to-reorder\n- [ ] Calculation utilities (streaks, totals, etc.)\n- [ ] Verify: feature works end-to-end\n\n### Slice 12: [Remaining Screens \u2014 Settings, Feedback, Placeholder Screens]\n> ~XX files | Remaining screens to complete the app\n- [ ] [Detail bottom sheet per spec]\n- [ ] `more_screen.dart` \u2014 settings tiles per spec\n- [ ] `feedback_screen.dart` \u2014 per spec (with url_launcher if external)\n- [ ] Placeholder screens with \"Coming soon\" per spec\n- [ ] Verify: all screens render, external links open, full app flow works end-to-end\n\n---\n\n## Testing Round X Fixes\n\n> See `/docs/testing.md` for full Round X fix list. All N items addressed in one pass.\n\nKey changes:\n- **[Screen / area]:** [Summary of fixes applied in this round]\n- **[Screen / area]:** [Summary]\n- **[Screen / area]:** [Summary]\n",
+  "decisions.md": "# Decisions Log\n\n> Lives at `/docs/decisions.md`. Append-only. Every deviation from /docs/spec/v1/ gets one line.\n> Format: YYYY-MM-DD \u2014 [area] \u2014 [what changed] \u2014 [why]\n>\n> Routine implementation choices (\"used Riverpod for state\") don't go here.\n> Behavioral deviations from spec do. Visual polish does NOT.\n\n---\n\nYYYY-MM-DD \u2014 meta \u2014 v1 spec frozen \u2014 sources: requirements.md, design_system.md, screen_specs.md\n\nYYYY-MM-DD \u2014 [Screen / area] \u2014 [what changed in one phrase] \u2014 [why in one phrase]\nYYYY-MM-DD \u2014 [Screen / area] \u2014 [what changed] \u2014 [why]\n\n[Append one line per behavioral deviation. Never edit or delete past entries.]\n",
+  "current_features.md": "# Features \u2014 Current State\n\n> Living document. Status field updates as features move through the\n> lifecycle: planned \u2192 partial \u2192 built \u2192 tested \u2192 shipped.\n\n---\n\n## Domain: [Domain name, e.g., Tracking]\n\n### [Feature name]\n- **Status:** planned\n- **Screens involved:** [list]\n- **Notes:** [optional context]\n\n### [Feature name]\n- **Status:** planned\n- **Screens involved:**\n- **Notes:**\n\n---\n\n## Domain: [Next domain]\n\n### [Feature name]\n- **Status:**\n- **Screens involved:**\n- **Notes:**\n\n---\n\n[Continue grouping by domain. Update status as features progress.]\n",
+  "current_screens.md": "# Screens \u2014 Current State\n\n> Living document. Updated whenever behavioral code changes affect what a\n> screen does. For original intent, see /docs/spec/v1/screen_specs.md.\n> Read every session during Build and Test phases.\n\n---\n\n## [Screen Name]\n**Purpose:** [One sentence \u2014 what this screen is for.]\n**Behaviors:**\n- [What the user can do here]\n- [What the user can do here]\n- [What the user can do here]\n**Navigation:**\n- From: [where this screen is reached from]\n- To: [where this screen can lead]\n**State:** [What data it reads/writes, high level]\n\n---\n\n## [Next Screen]\n**Purpose:**\n**Behaviors:**\n-\n-\n**Navigation:**\n- From:\n- To:\n**State:**\n\n---\n\n[Continue for every screen. Keep entries terse \u2014 bullets, not paragraphs.\nAim for ~10 lines per screen. This file is read every session, so brevity matters.]\n",
+  "design_system.md": "# Design System\n\n> Originally extracted from design input files (now archived in `docs/archive/`). This document is the authoritative design reference.\n> Theme: [**Dual mode** / **Dark only** / **Light only**] \u2014 [theme description, e.g., Dark Anthracite + Light Cream]. The active theme follows the user's system preference (`ThemeMode.system`).\n\n---\n\n## Color Palette\n\n### Backgrounds\n\n#### Dark ([Theme name])\n| Token | Hex | Usage |\n|-------|-----|-------|\n| `background.primary` | `#XXXXXX` | Screen backgrounds |\n| `background.deep` | `#XXXXXX` | Deeper variant (splash, etc.) |\n| `background.card` | `#XXXXXX` | Cards, tiles, bottom sheets |\n| `background.elevated` | `#XXXXXX` | Elevated surfaces |\n| `background.tinted_green` | `#XXXXXX` | Green-tinted surfaces |\n| `overlay.dim` | `rgba(0,0,0,X.X)` | Bottom sheet dim overlay |\n\n#### Light ([Theme name], if applicable)\n| Token | Hex | Usage |\n|-------|-----|-------|\n| `background.primary` | `#XXXXXX` | Screen backgrounds |\n| `background.card` | `#XXXXXX` | Cards |\n| `background.elevated` | `#XXXXXX` | Elevated surfaces |\n\n### Text\n| Token | Hex | Usage |\n|-------|-----|-------|\n| `text.primary` | `#XXXXXX` | Headings, body text, primary labels |\n| `text.secondary` | `#XXXXXX` | Captions, subtitles, hints |\n| `text.disabled` | `#XXXXXX` | Disabled text, placeholder text |\n\n### Accent\n| Token | Hex | Usage |\n|-------|-----|-------|\n| `accent.primary` | `#XXXXXX` | Primary CTA buttons, active nav, etc. |\n| `accent.primary_dark` | `#XXXXXX` | Darker variant (hover/press states) |\n| `accent.primary_light` | `#XXXXXX` | Light variant |\n\n### Semantic\n| Token | Hex | Usage |\n|-------|-----|-------|\n| `success` | `#XXXXXX` | Positive indicators |\n| `danger` | `#XXXXXX` | Destructive actions |\n| `warning` | `#XXXXXX` | Caution states |\n| `info` | `#XXXXXX` | Informational |\n\n### Borders\n| Token | Hex | Usage |\n|-------|-----|-------|\n| `border.default` | `#XXXXXX` | Card borders, row separators |\n| `border.input` | `#XXXXXX` | Text input borders, inactive chip borders |\n| `border.active` | `#XXXXXX` | Focused input borders, selected chip borders |\n| `border.danger` | `#XXXXXX` | Danger button outline |\n\n### [Special palettes \u2014 e.g., metric colors, chart lines]\n[Document any special color assignment rules \u2014 randomized colors per item, distinct color requirements, etc.]\n\n---\n\n## Typography\n\n| Style | Font | Weight | Size | Usage |\n|-------|------|--------|------|-------|\n| Screen Title | [System / custom font] | 500 | 15px | Screen headings |\n| Section Heading | System | 500-600 | 14px | Section headers |\n| Card Title | System | 500 | 11-13px | Card names |\n| Body | System | 400 | 11px | General text |\n| Label | System | 400-500 | 9-10px | Input labels, stat labels |\n| Caption | System | 400 | 8-9px | Timestamps, small hints |\n| Button | System | 500 | 12px | CTA button labels |\n\n**Font family:** [`-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif` / custom]\n**Letter spacing:** [Special letter-spacing rules]\n\n---\n\n## Spacing\n\n| Token | Value | Usage |\n|-------|-------|-------|\n| `screen_padding` | XXpx | Horizontal padding for screen content |\n| `card_padding` | XXpx | Internal card padding |\n| `card_gap` | XXpx | Gap between stacked cards |\n| `section_gap` | XXpx | Gap between sections |\n| `input_height` | XXpx | Text input field height |\n| `cta_height` | XXpx | CTA button height |\n| `min_touch_target` | 48dp | Minimum touch target for accessibility |\n\n---\n\n## Border Radius\n\n| Token | Value | Usage |\n|-------|-------|-------|\n| `card` | XXpx | Cards |\n| `button` | XXpx | CTA buttons |\n| `input` | XXpx | Text fields |\n| `chip` | XXpx | Selector chips |\n| `pill` | XXpx | Pill-shaped buttons |\n| `bottom_sheet` | XXpx | Bottom sheet top corners |\n| `circle` | 50% | Icon circles |\n\n---\n\n## Shadows / Elevation\n\n| Token | Value | Usage |\n|-------|-------|-------|\n| `card` | [value or \"None \u2014 uses border\"] | Card elevation |\n| `nav` | [value or \"None \u2014 uses border-top\"] | Bottom nav elevation |\n\n> [Note any elevation philosophy \u2014 e.g., \"Dark theme uses borders not shadows.\"]\n\n---\n\n## Icons\n\n- **Icon set:** [Custom SVG / Material / Lucide / etc.]\n- **Icon size:** [XX px for nav; XX px for inline]\n- **Stroke width:** [X.X-X.X px depending on context]\n- **Nav icons:** [List the 4 nav icons]\n- **Other icons:** [List commonly used icons]\n- **Illustrations:** [Empty state / placeholder illustrations]\n\n---\n\n## Shared Components\n\n### CTA Button \u2014 Filled\n| Property | Value |\n|----------|-------|\n| Background | `#XXXXXX` |\n| Text color | `#XXXXXX` |\n| Height | XXpx |\n| Border radius | XXpx |\n| Font size | XXpx |\n| Font weight | 500 |\n\n### CTA Button \u2014 Outline\n[Same property table]\n\n### CTA Button \u2014 Disabled\n[Same property table]\n\n### CTA Button \u2014 Secondary\n[Same property table]\n\n### CTA Button \u2014 Danger\n[Same property table]\n\n### Dual CTA Row\n- Layout: [Cancel + Save side by side, flex ratios, gap]\n\n### Text Input\n| Property | Value |\n|----------|-------|\n| Background | `#XXXXXX` |\n| Border | X.Xpx solid `#XXXXXX` |\n| Border (focused) | X.Xpx solid `#XXXXXX` |\n| Border radius | XXpx |\n| Height | XXpx |\n| Font size | XXpx |\n| Text color | `#XXXXXX` |\n| Placeholder | `#XXXXXX` |\n\n### Toggle Switch\n[Property table]\n\n### Chip Selector\n[Property table \u2014 include default / selected states]\n\n### Card\n[Property table]\n\n### Bottom Sheet\n[Property table \u2014 include drag handle, dim overlay]\n\n### Progress Bar\n[Property table]\n\n### [Other shared components]\n\n---\n\n## Interactions & Transitions\n\n| Trigger | Behavior |\n|---------|----------|\n| Screen navigation | [Slide / fade / etc.] |\n| Bottom sheet open | [Slide up from bottom] |\n| Bottom sheet dismiss | [Drag down gesture] |\n| Splash \u2192 Main screen | [Fade transition after X seconds] |\n| [Specific interaction] | [Behavior] |\n\n---\n\n## Data Display Conventions\n\n### [Convention 1 \u2014 e.g., Metric Name + Unit]\n[Detailed rules for how this is displayed across screens]\n\n### [Convention 2 \u2014 e.g., Variance Indicator]\n[Rules]\n\n### [Convention 3 \u2014 e.g., Empty States]\n[Rules]\n",
+  "gap_analysis.md": "# Gap Analysis \u2014 [App Name]\n\n> Temporary file. Generated to surface conflicts and drift between\n> requirements.md, design_system.md, and screen_specs.md.\n> Deleted after Step 3 reconciliation completes.\n\n---\n\n## (1) Conflicts\n\nPlaces where two documents say different things about the same thing.\n\n### Conflict 1\n- **Topic:** [What it's about]\n- **Source A** (`requirements.md`, section X): \"[exact quote or paraphrase]\"\n- **Source B** (`screen_specs.md`, Screen Y): \"[exact quote or paraphrase]\"\n- **Why this matters:** [one line]\n\n### Conflict 2\n- **Topic:**\n- **Source A:**\n- **Source B:**\n- **Why this matters:**\n\n---\n\n## (2) Drift\n\nContent present in one document with no counterpart in another.\n\n### Functionality in screen_specs without requirements coverage\n- Screen [X] has [feature Y] not mentioned in requirements\n\n### Requirements without corresponding screen\n- Requirement [X] has no screen that implements it\n\n### Components in design_system unused in any screen\n- Component [X] is defined but never referenced\n\n### Visual specs in screen_specs not defined in design_system\n- Screen [X] mentions [color/component] not in design_system\n\n---\n\n## Status\n\nAfter running gap analysis: **N conflicts, M drift items found**\n\nOnce resolved, this file is deleted.\n",
+  "requirements.md": "# Requirements\n\n## 1. App Overview\nBrief description of what the app does and the problem it solves.\n\n- **Core value proposition:** [What the app does and why it matters.]\n- **What makes it different from other apps:** [Differentiator.]\n\n---\n\n## 2. Target Audience\nWho is this app for?\n\n- **Primary user:** [Description]\n- **Secondary user:** [Description]\n- **Assumed technical level (smartphone usage):** [General / advanced / specific]\n\n> **Confirmed:** [Any baseline assumptions about users.]\n\n---\n\n## 3. Features\n\n### 3.1 Must Have (MVP)\nFeatures the app cannot launch without.\n\n| Feature | Description |\n|--------|-------------|\n| [Feature name] | [Detailed description of what it does, where it lives, how it behaves.] |\n| [Feature name] | [Description] |\n\n> **Confirmed:** [Any locked-in decisions about MVP features.]\n\n### 3.2 Should Have\nImportant but not blocking launch.\n\n| Feature | Description |\n|--------|-------------|\n| [Feature name] | [Description] |\n\n### 3.3 Nice to Have\nFuture ideas \u2014 don't build these first.\n\n| Feature | Description |\n|--------|-------------|\n| [Feature name] | [Description] |\n\n---\n\n## 4. User Journeys\n\n### 4.1 First Launch\n1. [Step by step user flow]\n2. [Step]\n3. [Step]\n\n> **Confirmed:** [Decisions about onboarding/auth/etc.]\n\n### 4.2 [Primary action \u2014 e.g., Create a Benchmark]\n1. [Step]\n2. [Step]\n3. [Step]\n\n> **Confirmed:** [Locked decisions]\n\n### 4.3 [Next journey]\n1. [Step]\n2. [Step]\n\n[Continue for every primary user journey \u2014 typically 6-12]\n\n---\n\n## 5. User Stories\nFormat: \"As a [user], I want to [action], so that [benefit].\"\n\n### [Feature group, e.g., Benchmarks]\n- As a user, I want to **[action]**, so that [benefit].\n- As a user, I want to **[action]**, so that [benefit].\n\n### [Next feature group]\n- As a user, I want to **[action]**, so that [benefit].\n\n### General\n- As a user, I want to **[action]**, so that [benefit].\n\n---\n\n## 6. Acceptance Criteria\nFormat: \"Given [context], when [action], then [expected result].\"\n\n### [Feature area]\n- Given [context], when [action], then [expected result].\n- Given [context], when [action], then [expected result].\n\n### [Next feature area]\n- Given [context], when [action], then [expected result].\n\n---\n\n## 7. Screens & Navigation\n\n### Screen List\n\n| # | Screen | Nav Bar | Access Point | Key Components |\n|---|--------|---------|-------------|----------------|\n| 1 | [Screen name] | Yes/No | [How to reach it] | [Key components/elements] |\n| 2 | [Screen name] | Yes/No | [How to reach it] | [Key components/elements] |\n\n### Navigation Flow\n\n```\n[ASCII diagram showing screen transitions]\n\nApp Launch\n  |\n  v\n[Screen 1] --(condition)--> [Screen 2]\n                              |\n                              v\n                          [Screen 3]\n```\n\n> **Confirmed:** [Any navigation-specific decisions]\n\n---\n\n## 8. Data Requirements\n\n### Data Models\n\n#### [Model name, e.g., Benchmark]\n| Field | Type | Description |\n|-------|------|-------------|\n| id | String (UUID) | Unique identifier |\n| name | String | [Description] |\n| createdAt | DateTime | [Description] |\n\n#### [Next model]\n| Field | Type | Description |\n|-------|------|-------------|\n| id | String (UUID) | Unique identifier |\n| [field] | [type] | [Description] |\n\n> **Confirmed:** [Storage decisions, partial-entry behavior, etc.]\n\n---\n\n## 9. Non-Functional Requirements\nQuality standards the app must meet \u2014 not features, but constraints.\n\n- **Performance:** [Loading time targets]\n- **Offline:** [Offline behavior]\n- **Accessibility:** [Standards]\n- **Privacy:** [Data handling]\n- **Platforms:** [iOS / Android versions]\n- **Dark Mode:** [Yes/no/both]\n\n> **Confirmed:** [Decisions about analytics, telemetry, etc.]\n\n---\n\n## 10. Out of Scope\nExplicitly list what this app will NOT do (at least not yet).\n\n- **[Excluded feature]** \u2014 [why excluded]\n- **[Excluded feature]** \u2014 [why excluded]\n- **[Excluded feature]** \u2014 [why excluded]\n\n---\n\n## 11. Resolved Questions\nPreviously open questions, now answered.\n\n| # | Question | Resolution |\n|---|----------|------------|\n| 1 | [Question] | [Resolution] |\n| 2 | [Question] | [Resolution] |\n\n## 12. Open Questions\n[List questions still needing answers, OR \"No open questions remaining. All assumptions have been confirmed.\"]\n\n---\n\n## 13. Revision History\nTrack major changes to this document.\n\n| Date | Change | Author |\n|------|--------|--------|\n| YYYY-MM-DD | Initial document creation. | [Name] |\n",
+  "retrospective.md": "# Retrospective \u2014 [App Name]\n\n> Final pass. Generated after store approval, before starting project N+1.\n> Feeds template improvements forward.\n\n---\n\n## Project summary\n\n- **Started:** YYYY-MM-DD\n- **Submitted:** YYYY-MM-DD\n- **Approved:** YYYY-MM-DD\n- **Total slices:** N\n- **Total test rounds:** M\n- **Final size:** X files, Y lines of Dart\n\n---\n\n## What worked\n\n### Documents that earned their keep\n- [ ] requirements.md \u2014 yes/no, why\n- [ ] design_system.md \u2014 yes/no\n- [ ] screen_specs.md \u2014 yes/no\n- [ ] build_progress.md \u2014 yes/no\n- [ ] /docs/current/screens.md \u2014 yes/no\n- [ ] /docs/current/features.md \u2014 yes/no\n- [ ] decisions.md \u2014 yes/no\n- [ ] testing.md \u2014 yes/no\n\n### Skills that delivered value\n- [ ] doc-sync \u2014 what specifically helped\n- [ ] flutter-stress-test \u2014 what bugs it caught\n- [ ] flutter-code-review \u2014 what it surfaced\n- [ ] app-store-prep \u2014 gaps it identified\n\n### Process moments that mattered\n- The v1 freeze: how clean was it?\n- Mid-build doc-sync regenerations: what drift did they catch?\n- Slice sizing: were sessions sized right?\n\n---\n\n## What was friction\n\n### Docs that were busywork\n- [Document name]: why it didn't help\n\n### Skill misfires\n- [Skill]: when it triggered wrongly or missed capability\n\n### Process pain\n- [Phase or step]: what slowed things down\n\n---\n\n## What was missing\n\nThings that, in retrospect, should have been:\n- [Decision made too late]\n- [Document that would have helped]\n- [Skill that doesn't exist yet]\n\n---\n\n## Quantitative\n\n- Slices that took >2\u00d7 estimated effort: N\n- Slices that needed splitting mid-way: M\n- Bugs caught by stress-test that would have shipped: K\n- Drift items caught by doc-sync regeneration: J\n- Spec deviations logged in decisions.md: I\n\n---\n\n## Template changes for project N+1\n\nSpecific edits to make to:\n- chronological walkthrough\n- skill files\n- CLAUDE.md template\n- hook scripts\n\n[List concrete changes.]\n\n---\n\n## Anti-templates\n\nThings added to the template in past retrospectives that ended up being\nmore trouble than worth. Note here to avoid re-adding next time.\n\n- [Anti-pattern 1]\n- [Anti-pattern 2]\n",
+  "screen_specs.md": "# Screen Specifications\n\n> Originally extracted from design input files (now archived in `docs/archive/`). This document is the authoritative screen reference.\n> All screens use the [theme name] theme defined in [design_system.md](./design_system.md).\n\n---\n\n## Navigation Structure\n\n```\nBottom Tab Bar ([N] tabs, icons only, always visible)\n\u251c\u2500\u2500 Tab 0: [Tab name] ([icon name])\n\u2502   \u251c\u2500\u2500 02a: [Screen name] \u2014 [State]\n\u2502   \u251c\u2500\u2500 02b: [Screen name] \u2014 [State]\n\u2502   \u251c\u2500\u2500 \u2192 03: [Sub-screen] (no nav bar)\n\u2502   \u251c\u2500\u2500 \u2192 04: [Sub-screen] (no nav bar)\n\u2502   \u2502   \u251c\u2500\u2500 \u2192 05: [Bottom Sheet]\n\u2502   \u2502   \u251c\u2500\u2500 \u2192 06: [Edit screen] (no nav bar)\n\u2502   \u2502   \u2514\u2500\u2500 \u2192 Delete \u2192 Confirmation \u2192 [back]\n\u251c\u2500\u2500 Tab 1: [Tab name] ([icon name])\n\u2502   \u251c\u2500\u2500 07: [Screen name]\n\u2502   \u2514\u2500\u2500 \u2192 08: [Detail screen]\n\u251c\u2500\u2500 Tab 2: [Tab name] ([icon name])\n\u2502   \u2514\u2500\u2500 09: [Screen name]\n\u2514\u2500\u2500 Tab 3: [Tab name] ([icon name])\n    \u251c\u2500\u2500 10: [Settings/More screen]\n    \u251c\u2500\u2500 \u2192 11: [Sub-screen] (no nav bar)\n    \u2514\u2500\u2500 \u2192 12: [Sub-screen] (no nav bar)\n\nSpecial:\n\u2514\u2500\u2500 01: Splash Screen \u2192 [first screen] (fade, ~Xs)\n```\n\n---\n\n## 1. [Screen Name \u2014 e.g., Splash Screen]\n**ID:** `01_splash` | **Nav bar:** No | **Layout:** Centered vertical\n\n**Components:**\n1. **[Component 1]** \u2014 [Size, color, animation, etc.]\n   - [Sub-detail]\n2. **[Component 2]** \u2014 [Description]\n   - [Sub-detail]\n\n**Behavior:**\n- [Background, animation timing, transitions]\n- [Display duration, navigation trigger]\n\n---\n\n## 2a. [Screen Name] \u2014 [State, e.g., Empty State]\n**ID:** `02a_screen_empty` | **Nav bar:** Yes (tab N active) | **Layout:** Column\n\n**Components:**\n1. **Heading** \u2014 \"[Screen title]\" ([font size, weight, padding])\n2. **[Empty state illustration]** \u2014 [Description, size, color]\n3. **Empty state title** \u2014 \"[Title text]\" ([typography spec])\n4. **Empty state subtitle** \u2014 \"[Subtitle text]\" ([typography spec])\n5. **CTA button** \u2014 \"[Button label]\" with [icon]\n   - Style: [filled / outline / disabled], [width], [alignment]\n\n**Behavior:**\n- Tap [element] \u2192 Navigate to [next screen]\n\n---\n\n## 2b. [Screen Name] \u2014 [State, e.g., Filled State]\n**ID:** `02b_screen_filled` | **Nav bar:** Yes (tab N active) | **Layout:** Scrollable column\n\n**Components:**\n1. **Heading** \u2014 \"[Screen title]\"\n2. **[Item list]** \u2014 [Layout description]\n   - Each item:\n     - Background: `#XXXXXX`, border: `Xpx solid #XXXXXX`, radius: XXpx\n     - **Row 1:** [Content + alignment]\n     - **Row 2:** [Content + alignment]\n3. **CTA button** \u2014 \"[Button label]\"\n\n**Interactions:**\n- Tap item \u2192 [Detail screen]\n- Tap CTA \u2192 [Action]\n- Long-press drag \u2192 Reorder\n\n---\n\n## 3. [Screen Name \u2014 e.g., Create / Form Screen]\n**ID:** `03_screen_name` | **Nav bar:** No | **Layout:** Column\n\n**Components:**\n1. **Heading** \u2014 \"[Title]\" ([typography spec])\n2. **[Input card name]:** \u2014 [layout description]\n   - Label: \"[Label text]\"\n   - Text input: placeholder \"[Placeholder]\"\n3. **[Repeating element, e.g., Metric card]:** (background `#XXXXXX`)\n   - Badge: \"[Badge text]\"\n   - **[Sub-input 1]** \u2014 [Layout, label, behavior]\n   - **[Sub-input 2 \u2014 chip selector]** \u2014 horizontal row of chips\n     - Options: [List]\n     - Default chip: bg `#XXXXXX`, border `#XXXXXX`, text `#XXXXXX`\n     - Selected chip: bg `#XXXXXX`, border `#XXXXXX`, text `#XXXXXX`\n   - **[Toggle row]** \u2014 inline layout: [Label] + toggle + [conditional input]\n4. **\"+ Add [item]\"** \u2014 text button, accent color\n5. **Dual CTA row:**\n   - Cancel: outline style (flex: 1)\n   - Save: disabled by default, enabled when [conditions] (flex: 2)\n\n**Behavior:**\n- [Save button enabling conditions]\n- Cancel \u2192 [destination]\n- Save \u2192 [destination]\n\n---\n\n## 4. [Detail Screen]\n**ID:** `04_detail` | **Nav bar:** No | **Layout:** Scrollable column\n\n**Components:**\n1. **Heading** \u2014 [Dynamic content, e.g., item name]\n2. **Action bar** \u2014 [N] buttons in a row:\n   - Back: [style]\n   - Edit: [style]\n   - Delete: [style]\n3. **CTA** \u2014 \"[Button label]\" \u2014 [style]\n4. **[Data table]:**\n   - Columns: [List]\n   - [Per-column formatting and behavior]\n5. **[Visualization, e.g., chart]:**\n   - Style: [chart type]\n   - X-axis: [data]\n   - Y-axis: [range, scale]\n6. **[Per-item cards, e.g., progress cards]:**\n   - Conditions when shown / hidden\n   - Layout\n\n**Empty state:**\n- [What's shown when no data exists]\n\n**Behavior:**\n- [Refresh, navigation rules]\n\n---\n\n## 5. [Bottom Sheet Name]\n**ID:** `05_bottom_sheet` | **Nav bar:** No | **Layout:** Bottom sheet (XX% height)\n\n**Components:**\n1. Drag handle ([size, color, position])\n2. \"[Sheet title]\" with close button (X)\n3. **[Input rows]** \u2014 each row:\n   - [Visual indicator, e.g., colored dot]\n   - [Field name]\n   - [Hint text]\n   - [Input field with styling]\n4. **CTA** \u2014 pinned at bottom\n\n**Behavior:**\n- [Save behavior]\n- Drag down / tap close \u2192 dismiss without saving\n\n---\n\n## 6. [Edit Screen]\n[Same structure as Create screen but pre-populated]\n\n---\n\n## 7-N. [Continue for every screen in the inventory]\n\n[Each screen follows the same template:\nID, Nav bar status, Layout, Components, Behavior, Interactions]\n",
+  "testing.md": "# Testing\n\n## Round 1 Fixes\n\nEach item maps to a specific file. Mark each `[x]` when committed.\n\n- [ ] [Short description of fix] \u2014 `[filename.dart]`\n- [ ] [Short description of fix] \u2014 `[filename.dart]`\n- [ ] [Short description of fix] \u2014 `[filename.dart]`, `[other_file.dart]`\n\n---\n\n## Round 2 Fixes\n\n- [ ] [Fix description] \u2014 `[filename.dart]`\n- [ ] [Fix description] \u2014 `[filename.dart]`\n- [ ] [Fix description] \u2014 `[filename.dart]`\n\n---\n\n## Round N Fixes\n\n[Continue appending rounds \u2014 never delete past rounds, only add new ones]\n\n---\n\n## Manual Test Checklist\n\nTest on a real device. Mark each item once verified.\n\n### Code Quality\n- [ ] `flutter analyze` \u2014 zero warnings\n- [ ] `dart format .` \u2014 all files formatted\n\n### [Feature area 1, e.g., Benchmark Flow]\n- [ ] [Specific test case]\n- [ ] [Specific test case]\n- [ ] [Specific test case]\n- [ ] Data persists across app restart\n\n### [Feature area 2, e.g., Habit Tracker Flow]\n- [ ] [Specific test case]\n- [ ] [Specific test case]\n- [ ] Drag-to-reorder works and persists\n\n### [Feature area 3]\n- [ ] [Test case]\n- [ ] [Test case]\n\n### Edge Cases\n- [ ] [Edge case]: [expected behavior]\n- [ ] [Edge case]: [expected behavior]\n- [ ] [Edge case]: [expected behavior]\n",
+  "user_stories.md": "# User Stories \u2014 [App Name]\n\n> Rough working file. Written before Claude involvement. Used as input\n> to generate the structured `requirements.md` in Step 2.\n> Discarded once requirements.md exists.\n\n## Who is this for?\n\n- **Primary user:** [one sentence \u2014 who they are, what they care about]\n- **Secondary user:** [optional]\n\n---\n\n## What are they trying to do?\n\nWrite out the main journeys through the app. Don't worry about screens or\nfeatures yet \u2014 just the user's goal and the path they take.\n\n### Journey 1: [Short name, e.g., \"First-time setup\"]\n- **Goal:** [what success looks like]\n- **Path:**\n  1. User does X\n  2. App shows Y\n  3. User does Z\n  4. ...\n- **Success:** [final state]\n\n### Journey 2: [Short name]\n- **Goal:**\n- **Path:**\n- **Success:**\n\n### Journey 3+: [Continue for every primary journey]\n\n---\n\n## Must-have features\n\n- [Feature]\n- [Feature]\n- [Feature]\n\n## Should-have features\n\n- [Feature]\n\n## Nice-to-have features (later, not now)\n\n- [Feature]\n\n---\n\n## OUT OF SCOPE for v1\n\n> Specificity here saves months later.\n\n- [Excluded thing]\n- [Excluded thing]\n- [Excluded thing]\n\n---\n\n## Hard constraints\n\n- Platform: [iOS / Android / both]\n- Minimum OS version: [e.g., iOS 16, Android 8]\n- Languages: [English only / multi]\n- Data: [local-only / cloud / hybrid]\n- Privacy: [no analytics / no third parties / etc.]\n- Other: [anything else non-negotiable]\n",
+  "global-CLAUDE.md": "# Global Development Standards\n\nBehavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.\n\n**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.\n\n## 1. Think Before Coding\n\nBefore implementing:\n- State your assumptions explicitly. If uncertain, ask.\n- If multiple interpretations exist, present them — don’t pick silently.\n- If a simpler approach exists, say so. Push back when warranted.\n- If something is unclear, stop. Name what’s confusing. Ask.\n\n## 2. Simplicity First\n\n- No features beyond what was asked.\n- No abstractions for single-use code.\n- No \"flexibility\" or \"configurability\" that wasn’t requested.\n- No error handling for impossible scenarios.\n- If you write 200 lines and it could be 50, rewrite it.\n\n## 3. Surgical Changes\n\nWhen editing existing code:\n- Don’t \"improve\" adjacent code, comments, or formatting.\n- Don’t refactor things that aren’t broken.\n- Match existing style, even if you’d do it differently.\n\nWhen your changes create orphans:\n- Remove imports/variables/functions that YOUR changes made unused.\n- Don’t remove pre-existing dead code unless asked.\n\n## 4. Goal-Driven Execution\n\nTransform tasks into verifiable goals:\n- \"Add validation\" → \"Write tests for invalid inputs, then make them pass\"\n- \"Fix the bug\" → \"Write a test that reproduces it, then make it pass\"\n- \"Refactor X\" → \"Ensure tests pass before and after\"\n\n---\n\n## Mobile App Development Best Practices\n- Build offline-first: assume unreliable connectivity\n- Optimize for performance: minimize rebuilds, lazy-load, avoid blocking the UI thread\n- Design for accessibility from the start (screen readers, dynamic type, color contrast)\n- Support both light and dark mode\n- Test on real devices, not just simulators/emulators\n- Keep app startup time under 2 seconds\n\n## Code Quality & Stability\n- Write defensive code: validate inputs, handle nulls, anticipate failure\n- All async operations must have proper error handling — never swallow exceptions silently\n- Keep dependencies minimal and audited — every added package is a liability\n- Pin dependency versions to avoid unexpected breaking changes\n- Prefer immutability: use final/const wherever possible\n\n## Security\n- Never store secrets, API keys, or credentials in source code or version control\n- Use secure storage for sensitive user data (tokens, passwords, PII)\n- Use HTTPS for all network communication\n- Follow the principle of least privilege for permissions\n- Keep dependencies updated to patch known vulnerabilities\n\n## Performance\n- Profile before optimizing — measure, don’t guess\n- Use pagination or lazy loading for lists and large data sets\n- Cache network responses intelligently with clear invalidation strategies\n- Avoid memory leaks: dispose controllers, close streams, cancel subscriptions\n\n## Design & UX Principles\n- Follow minimalistic design: every element on screen must earn its place\n- Prioritize clarity over cleverness\n- Design for thumb-friendly touch targets (minimum 44x44pt / 48x48dp)\n- Reduce cognitive load: limit choices per screen, use progressive disclosure\n- Ensure smooth transitions and animations (60fps target)\n\n## App Store Compliance (Apple & Google)\n- Follow Apple HIG and Material Design guidelines as baseline standards\n- Include a privacy policy and be transparent about data collection\n- Handle in-app purchases through the platform’s billing system where required\n- Do not use private/undocumented APIs\n- Support the latest two major OS versions at minimum\n\n## Don’ts (Global)\n- Don’t commit generated files, build artifacts, or IDE-specific config\n- Don’t use print/console.log for logging — use a proper logging framework\n- Don’t hardcode strings, colors, dimensions, or environment-specific values\n- Don’t ignore linter warnings — fix them or explicitly suppress with a comment explaining why\n- Don’t add packages without evaluating their maintenance status, license, and size impact",
+  "settings.json": "{\n  \"permissions\": {\n    \"allow\": [\n      \"Bash(dart analyze *)\",\n      \"Bash(flutter test *)\",\n      \"Bash(git stash *)\"\n    ]\n  },\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"~/.claude/hooks/block-dangerous.sh\" }\n        ]\n      },\n      {\n        \"matcher\": \"Write|Edit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"~/.claude/hooks/protect-sensitive.sh\" }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Write|Edit\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"~/.claude/hooks/format-dart.sh\" }\n        ]\n      }\n    ],\n    \"Notification\": [\n      {\n        \"matcher\": \"\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"powershell.exe -ExecutionPolicy Bypass -File ~/.claude/hooks/notify-windows.ps1\" }\n        ]\n      }\n    ],\n    \"Stop\": [\n      {\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"~/.claude/hooks/verify-before-stop.sh\" }\n        ]\n      }\n    ]\n  }\n}",
+  "block-dangerous.sh": "#!/bin/bash\nINPUT=$(cat)\nCMD=$(echo \"$INPUT\" | jq -r '.tool_input.command')\n\nfor pattern in \"rm -rf /\" \"rm -rf ~\" \"rm -rf \\$HOME\" \"rm -rf \\./\" \"sudo rm -rf\" \"git push.*--force\" \"git reset --hard\" \"git clean -fd\" \"drop table\" \"DROP TABLE\" \"truncate\" \"TRUNCATE\" \":(){ :|:& };:\" \"dd if=/dev/zero\"; do\n  if echo \"$CMD\" | grep -qiE \"$pattern\"; then\n    echo \"Blocked: dangerous command detected ($pattern)\" >&2\n    exit 2\n  fi\ndone\n\nexit 0",
+  "protect-sensitive.sh": "#!/bin/bash\nINPUT=$(cat)\nFILE_PATH=$(echo \"$INPUT\" | jq -r '.tool_input.file_path // empty')\n[[ -z \"$FILE_PATH\" ]] && exit 0\n\nFILENAME=$(basename \"$FILE_PATH\")\n\n# Block writes to sensitive files\nif echo \"$FILENAME\" | grep -qiE '^\\.env$|^\\.env\\.|\\.pem$|\\.key$|\\.p12$|\\.keystore$|\\.jks$|^id_rsa|secrets'; then\n  echo \"Blocked: cannot modify sensitive file ($FILENAME)\" >&2\n  exit 2\nfi\n\nexit 0",
+  "format-dart.sh": "#!/bin/bash\nINPUT=$(cat)\nFILE_PATH=$(echo \"$INPUT\" | jq -r '.tool_input.file_path // empty')\n[[ -z \"$FILE_PATH\" ]] && exit 0\n\nif [[ \"$FILE_PATH\" == *.dart ]]; then\n  dart format \"$FILE_PATH\" 2>/dev/null\n  # Mark that a .dart file was edited this session \u2014 verify-before-stop.sh reads this\n  SESSION_ID=$(echo \"$INPUT\" | jq -r '.session_id // \"default\"')\n  touch \"/tmp/claude-dart-edited-${SESSION_ID}\"\nfi\n\nexit 0",
+  "notify-windows.ps1": "[Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null\n$template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent(0)\n$template.GetElementsByTagName('text')[0].AppendChild($template.CreateTextNode('Claude Code needs your attention')) | Out-Null\n$toast = [Windows.UI.Notifications.ToastNotification]::new($template)\n[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('Claude Code').Show($toast)",
+  "verify-before-stop.sh": "#!/bin/bash\nINPUT=$(cat)\n\n# Prevent infinite loops\nif [ \"$(echo \"$INPUT\" | jq -r '.stop_hook_active')\" = \"true\" ]; then\n  exit 0\nfi\n\n# Only run tests if a .dart file was edited in this session.\n# Tracks edits via a per-session marker file written by a companion hook.\nMARKER=\"/tmp/claude-dart-edited-$(echo \"$INPUT\" | jq -r '.session_id // \"default\"')\"\nif [ ! -f \"$MARKER\" ]; then\n  exit 0\nfi\n\n# Run tests \u2014 if they fail, don't let Claude stop\nif ! flutter test --no-pub 2>&1 | tail -20; then\n  echo \"Tests are failing. Please fix before finishing.\" >&2\n  rm -f \"$MARKER\"\n  exit 2\nfi\n\nrm -f \"$MARKER\"\nexit 0",
+  "skill-notebooklm.md": "---\nname: notebooklm\ndescription: Use this skill to build a deep, grounded research foundation on any topic before starting work.\n---\n\n# NotebookLM Research Skill\n\nThis skill runs a 3-phase research workflow. Claude Code handles source discovery and final synthesis. NotebookLM (run manually by the user) handles deep analysis. No MCP server or third-party code required.\n\n---\n\n## Phase 1 — Source Discovery (Claude Code)\n\n### 1.1 Understand the research goal\n- What is the exact topic or task?\n- What type of knowledge is needed?\n- Any constraints? (language, framework, date range)\n\n### 1.2 Search for top sources\nRun 4–6 targeted web searches:\n- [topic] best practices 2024\n- [topic] official documentation\n- [topic] tutorial guide\n- [topic] common mistakes pitfalls\n- [topic] advanced techniques\n\n### 1.3 Evaluate and filter sources\n- Publicly accessible (no login required)\n- Authoritative (official docs, reputable publication, known expert)\n- Recent enough to be accurate\n\nTarget: 15–20 high-quality URLs.\n\n### 1.4 Output the source list\nPresent sources so the user can paste them directly into NotebookLM. Then display the PAUSE message and wait.\n\n---\n\n## Phase 2 — NotebookLM Analysis (User)\n\nClaude Code does nothing during this phase. Wait for the user to paste back content.\n\n---\n\n## Phase 3 — Receive & Process Output (Claude Code)\n\n1. Acknowledge what was received\n2. Generate mindmap as research-mindmap-[topic-slug].md\n3. Extract 5–8 actionable key takeaways\n4. Ask user whether to save to:\n   - (A) ~/.claude/CLAUDE.md — all projects\n   - (B) [project]/.claude/CLAUDE.md — this project only\n   - (C) Don't save — context only\n\nWait for explicit response before saving anything.\n\n---\n\n## Phase 4 — Save (only if user approves)\n\nAppend summary block with key takeaways and mindmap path. Save full mindmap and NotebookLM output to ~/.claude/research/[topic-slug]/.",
+  "skill-creator.md": "---\nname: skill-creator\ndescription: Create new skills, modify and improve existing skills, and measure skill performance.\n---\n\n# Skill Creator\n\nA skill for creating new skills and iteratively improving them.\n\nThe process: decide what the skill should do → write a draft → run test cases → evaluate results → rewrite based on feedback → repeat.\n\n## Creating a skill\n\n### Capture Intent\n1. What should this skill enable Claude to do?\n2. When should this skill trigger?\n3. What is the expected output format?\n4. Should we set up test cases to verify it works?\n\n### Write the SKILL.md\n\n- **name**: Skill identifier\n- **description**: When to trigger, what it does. Make descriptions slightly \"pushy\" — Claude tends to undertrigger skills.\n- **body**: Instructions, templates, references\n\n### Skill File Structure\n\n```\nskill-name/\n├── SKILL.md (required)\n└── Bundled Resources (optional)\n    ├── scripts/    - Executable code for repetitive tasks\n    ├── references/ - Docs loaded into context as needed\n    └── assets/     - Templates, icons, fonts\n```\n\n### Progressive Disclosure\n1. Metadata (name + description) — always in context\n2. SKILL.md body — in context when skill triggers (keep under 500 lines)\n3. Bundled resources — loaded as needed\n\n## Running and Evaluating Test Cases\n\nFor each test case, spawn two subagents in the same turn:\n- **With-skill run**: load the skill, run the prompt\n- **Baseline run**: same prompt, no skill\n\nWhile runs are in progress, draft quantitative assertions.\n\nOnce runs complete:\n1. Grade each run against assertions\n2. Aggregate into benchmark.json\n3. Launch the eval viewer (generate_review.py)\n4. Wait for user feedback\n\n## Improving the Skill\n\n1. **Generalize from feedback** — don't overfit to specific test examples\n2. **Keep the prompt lean** — remove things not pulling their weight\n3. **Explain the why** — LLMs respond to reasoning better than rigid MUSTs\n4. **Bundle repeated work** — if all test runs wrote the same helper script, put it in scripts/\n\n## Description Optimization\n\nAfter the skill is complete, run the optimizer to improve triggering accuracy:\n\n```bash\npython -m scripts.run_loop \\\n  --eval-set <path-to-trigger-eval.json> \\\n  --skill-path <path-to-skill> \\\n  --model <model-id> \\\n  --max-iterations 5\n```\n\nSplits evals 60/40 train/test, iterates up to 5 times, returns best_description selected by test score.",
+  "skill-app-store-prep.md": "---\nname: app-store-prep\ndescription: |\n  Audit project readiness for App Store / Play Store submission and\n  generate a gap report + draft submission package. Run AFTER stress-test\n  and code-review are clean. Reads pubspec.yaml, Info.plist, build.gradle\n  for current state; reads /docs/current/features.md for what to describe;\n  reads /docs/spec/v1/requirements.md for original positioning. Outputs\n  a gap report identifying everything missing before submission, plus\n  draft metadata and screenshot briefs. Does not modify code; reports\n  only. Trigger on phrases like \"prepare for submission\", \"App Store prep\",\n  \"release readiness\", \"submission checklist\".\n---\n\n# App Store Preparation\n\n## How to Use This Skill\n\n### Step 1: Project audit\n\nRead these files to determine current state:\n\n```bash\n# Version info\ncat pubspec.yaml | grep version\ncat ios/Runner/Info.plist | grep -A1 \"CFBundleShortVersionString\\|CFBundleVersion\"\ncat android/app/build.gradle | grep -E \"versionCode|versionName\"\n\n# Bundle identifier\ngrep -r \"PRODUCT_BUNDLE_IDENTIFIER\" ios/\ngrep \"applicationId\" android/app/build.gradle\n\n# Privacy/support URLs (search for any URL pattern in pubspec or strings)\ngrep -rE \"https?://\" lib/ pubspec.yaml | grep -iE \"privacy|support|terms\"\n```\n\n### Step 2: Determine submission scope\n\nAsk the user:\n- iOS submission, Android submission, or both?\n- First submission or update?\n- Target audience age rating?\n- Monetization (free, paid, IAP, subscription)?\n\n### Step 3: Compare against requirements\n\nFor each platform being submitted to, produce a gap report covering:\n\n#### Required metadata gaps\nFor each item, mark: present | missing | needs-update\n\niOS:\n- App name (\u226430 chars)\n- Subtitle (\u226430 chars)\n- Description (\u22644000 chars)\n- Keywords (\u2264100 chars)\n- Promotional text (\u2264170 chars)\n- Support URL (must be live)\n- Privacy Policy URL (must be live)\n- Age rating questionnaire\n- Screenshots (6.9\", 6.5\", iPad if universal)\n\nAndroid:\n- App name (\u226430 chars)\n- Short description (\u226480 chars)\n- Full description (\u22644000 chars)\n- Up to 5 tags\n- Privacy Policy URL\n- Data safety form\n- Content rating\n- Phone screenshots (2-8)\n- Feature graphic (1024\u00d7500)\n\n#### Required build gaps\nFor each, verify against project files:\n- Version number incremented from last submission?\n- Build number unique?\n- Tested on real device?\n- Tested on minimum supported OS version?\n\n#### Required behavioral gaps\nRead /docs/current/features.md and check:\n- Are all behaviors that handle user data covered by privacy policy?\n- Are all permissions used (camera, location, contacts) declared?\n- Sign in with Apple if any third-party auth (iOS only)?\n- 64-bit support enabled (Android)?\n\n### Step 4: Generate submission package\n\nOutput to `/docs/submission/{ios|android}/`:\n\n```\n/docs/submission/ios/\n\u251c\u2500\u2500 GAP_REPORT.md          # Everything missing or needs-update\n\u251c\u2500\u2500 metadata.md            # Pre-filled with what's known, blanks for unknown\n\u251c\u2500\u2500 description_drafts.md  # 3 description variants based on requirements\n\u251c\u2500\u2500 keywords_draft.md      # ASO keyword analysis from requirements\n\u251c\u2500\u2500 release_notes.md       # Drafted from /docs/decisions.md since last release\n\u2514\u2500\u2500 screenshot_brief.md    # Which screens to screenshot, in what device sizes\n```\n\nThe screenshot_brief should reference /docs/current/screens.md to identify\nwhich screens best demonstrate core value.\n\n## After Running This Skill\n\n1. Review GAP_REPORT.md, fix all gaps before submission.\n2. For metadata blanks, fill in manually based on description_drafts.md.\n3. Take screenshots per screenshot_brief.md.\n4. Verify privacy policy and support URLs are actually live.\n5. Submit to App Store Connect / Play Console manually.\n6. After submission, append to /docs/decisions.md:\n   `YYYY-MM-DD \u2014 release \u2014 submitted v{X.Y.Z} to {iOS|Android}`\n7. Wait for review. If rejected, address feedback and re-run this skill.\n\n---\n\n## Appendix: Reference Material\n\n### Apple App Store\n\n#### Metadata\n- App name (max 30 chars) \u2014 include primary keyword\n- Subtitle (max 30 chars) \u2014 second most important keyword phrase\n- Description (max 4000 chars) \u2014 front-load benefits, use line breaks\n- Keywords field (max 100 chars) \u2014 comma-separated, no spaces after commas, no repeating words already in name/subtitle\n- Promotional text (max 170 chars) \u2014 updatable without a new build\n- Support URL + Privacy Policy URL (both required)\n- Age rating questionnaire completed\n\n#### Required Screenshot Sizes\n| Device | Size |\n|---|---|\n| iPhone 6.9\" (required) | 1320 \u00d7 2868 or 1290 \u00d7 2796 |\n| iPhone 6.5\" | 1284 \u00d7 2778 |\n| iPad Pro 13\" (if universal) | 2064 \u00d7 2752 |\n\nFirst screenshot is most important \u2014 show core value immediately. Add device frames + short captions.\n\n#### Version Numbers\n```xml\n<!-- ios/YourApp/Info.plist -->\n<key>CFBundleShortVersionString</key>\n<string>2.1.0</string>   <!-- user-visible -->\n<key>CFBundleVersion</key>\n<string>47</string>       <!-- increment every upload -->\n```\n\n#### Release Notes\n- Lead with most impactful change\n- Plain language, no jargon\n- Keep under ~170 chars for above-the-fold visibility\n- Example: \"New: dark mode. Fixed: crash on startup. Improved: faster photo loading.\"\n\n### Google Play Store\n\n#### Metadata\n- App name (max 30 chars)\n- Short description (max 80 chars) \u2014 shown in search results\n- Full description (max 4000 chars)\n- Up to 5 tags\n- Privacy Policy URL\n- Data safety form completed\n- Content rating questionnaire completed\n\n#### Screenshots\n- Phone: 2\u20138 screenshots (min 320px, max 3840px on any side)\n- Feature graphic: 1024 \u00d7 500px \u2014 shown at top of listing\n\n#### Version Numbers\n```groovy\n// android/app/build.gradle\nversionCode 47          // integer, must increment each release\nversionName \"2.1.0\"     // user-visible string\n```\n\n### ASO (App Store Optimization)\n\n#### Keyword Research Process\n1. List your app's core actions (\"track habits\", \"daily planner\")\n2. Research competitor keywords (AppFollow, Sensor Tower)\n3. Target medium-volume, lower-competition terms\n4. Keyword weight: name (3\u00d7) > subtitle (2\u00d7) > keywords field (1\u00d7)\n\n#### Description Structure\n```\n[Hook \u2014 what problem you solve, 1-2 sentences]\n\nKEY FEATURES:\n\u2022 Feature 1 \u2014 lead with benefit, not tech detail\n\u2022 Feature 2\n\u2022 Feature 3\n\n[Social proof: \"Loved by 100k+ users\"]\n\n[Secondary features]\n\n[Call to action]\n```\n\n### Pre-Submission Checklist\n\n#### Both Stores\n- [ ] Tested on real device (not just simulator)\n- [ ] Tested on oldest supported OS version\n- [ ] No launch crashes\n- [ ] Deep links work\n- [ ] Push notifications tested\n- [ ] In-app purchases tested in sandbox\n- [ ] Privacy policy URL is live and accessible\n\n#### iOS Only\n- [ ] Tested on iPhone + iPad (if universal)\n- [ ] No private APIs used\n- [ ] Sign in with Apple implemented (if any third-party login present)\n\n#### Android Only\n- [ ] Tested on Android 8+ (API 26+)\n- [ ] 64-bit support enabled\n- [ ] Target SDK meets current year's requirement\n- [ ] Data safety form matches actual data collection\n",
+  "skill-doc-sync.md": "---\nname: doc-sync\ndescription: Use this skill when updating project documentation in /docs/current/ to reflect code changes. Triggers when the user asks to update screens.md, features.md, or decisions.md, or when a hook reminder fires about doc drift after a code edit. Also use when running a periodic \"regenerate docs from code\" pass at the end of a development slice. Do NOT use for editing /docs/spec/ (frozen) or for initial requirements/design authoring.\n---\n\n# Doc sync procedure\n\n## When invoked after a code change\n\n1. Read the changed file(s) to understand what actually changed in behavior.\n2. Read the relevant section of `/docs/current/screens.md` or `features.md`.\n3. Decide: does this change affect what a user sees or does? If no, stop.\n   Do not update docs for pure refactors.\n4. If yes, update the doc section in place. Keep entries terse \u2014 one paragraph\n   per screen, bullet list for behaviors. Don't write essays.\n5. Append one line to `/docs/decisions.md`:\n   `YYYY-MM-DD \u2014 [screen/feature] \u2014 what changed \u2014 why`\n\n## Format for screens.md\n\nEach screen gets its own `## ScreenName` section with:\n- **Purpose**: one sentence\n- **Behaviors**: bullet list of what the user can do\n- **Navigation**: where it goes from here, where it comes from\n- **State**: what data it reads/writes (high level, not field-by-field)\n\n## Format for features.md\n\nEach feature gets:\n- **Status**: built / partial / planned\n- **Screens involved**: list\n- **Notes**: anything non-obvious\n\n## Periodic regeneration mode\n\nIf the user says \"regenerate docs\" or \"rebuild current docs from code\":\n1. Archive existing `/docs/current/` to `/docs/spec/vN/` (next version number).\n2. Walk `/lib/screens/` and rebuild `screens.md` from scratch by reading code.\n3. Walk feature modules and rebuild `features.md`.\n4. Start a fresh `decisions.md` with a single entry noting the regeneration.\n\n## Drift conflicts\n\nIf the code change contradicts something in `/docs/spec/`, do not edit the spec.\nNote the conflict in `decisions.md` and surface it to the user explicitly.",
+  "skill-flutter-code-review.md": "---\nname: flutter-code-review\ndescription: Review Flutter/Dart codebases for performance issues, stability risks, and best practice violations. Use this skill whenever the user asks to review, audit, optimize, or improve their Flutter app's code quality, performance, stability, or architecture. Also trigger on phrases like \"make my app faster\", \"why is my app janky\", \"review my Flutter code\", \"find performance issues\", \"audit my dependencies\", \"best practices for Flutter\", \"optimize my app\", \"reduce app size\", \"fix memory leaks\", \"improve startup time\", \"Skipped frames\", \"Choreographer\", \"main thread\", \"jank\", \"slow scroll\", \"dropped frames\", \"UI thread blocked\", \"find dead code\", \"find unused code\", \"find unused files\", \"clean up my code\", or any request to analyze a Flutter project for quality improvements. Covers widget optimization, Riverpod state management, async patterns, dependency auditing, network layer, image/asset handling, build configuration, CI/CD setup, and dead code / unused file detection. Run AFTER flutter-stress-test issues are resolved. Defer functional bugs (overflow, crashes from extreme inputs, layout breakage) to flutter-stress-test \u2014 those should already be addressed before this skill runs. This skill is for *code quality and architecture*, not *runtime correctness*. If a code quality issue is also a runtime bug, flag it once here with a note \"(also caught by stress-test)\".\n---\n\n# Flutter Code Review & Performance Skill\n\nThis skill performs a structured code review of a Flutter project, identifying performance bottlenecks, stability risks, and best practice violations. It produces actionable findings with concrete code fixes.\n\n## How to Use This Skill\n\n### Step 1: Scan the Project\n\nFirst, understand the project structure. Run these commands to map the codebase:\n\n```bash\n# Project structure overview\nfind lib -type f -name \"*.dart\" | head -100\n\n# Check pubspec for dependencies and SDK constraints\ncat pubspec.yaml\n\n# Check analysis options\ncat analysis_options.yaml 2>/dev/null || echo \"No analysis_options.yaml found\"\n\n# Count lines of code\nfind lib -name \"*.dart\" | xargs wc -l | tail -1\n\n# Check for existing linting\ncat pubspec.yaml | grep -A5 \"lint\"\n```\n\n### Step 2: Run Automated Analysis\n\nBefore manual review, run every automated tool available:\n\n```bash\n# Static analysis \u2014 catch type errors, unused imports, dead code\ndart analyze lib/\n\n# Check for outdated dependencies\nflutter pub outdated\n\n# Check for dependency conflicts\nflutter pub deps\n\n# Dry-run to check for resolution issues\nflutter pub upgrade --dry-run\n```\n\nReport the findings from these tools, then proceed to manual review.\n\n### Step 3: Manual Code Review\n\nWork through each review category below. For each one, read the corresponding reference file for the detailed checklist and anti-patterns to search for.\n\n**Review categories (in priority order):**\n\n1. **Widget & Rebuild Optimization** \u2014 Read `references/widget-optimization.md`\n2. **Riverpod State Management** \u2014 Read `references/riverpod-review.md`\n3. **Async & Error Handling** \u2014 Read `references/async-patterns.md`\n4. **Network & API Layer** \u2014 Read `references/network-layer.md`\n5. **Image, Asset & Memory** \u2014 Read `references/assets-memory.md`\n6. **Dependencies & Security** \u2014 Read `references/dependency-audit.md`\n7. **Build & Release Config** \u2014 Read `references/build-release.md`\n8. **CI/CD & Automation** \u2014 Read `references/ci-cd.md`\n9. **Dead Code, Unused Files & Loose Ends** \u2014 Read `references/dead-code.md`\n\nFor each category, scan the relevant source files and report findings.\n\n> \u26a0\ufe0f **Special note on category 9 (Dead Code)**: This category is **report-only, never auto-delete**. Removing code that appears unused but is actually referenced via reflection, codegen, platform channels, or string-based lookup will break the app at runtime. Follow the conservative rules in `references/dead-code.md` strictly. When in doubt, report it as a candidate and let the developer verify.\n\n**Specific Flutter false-positive risks for dead-code detection:**\n- `@HiveType` / `@HiveField` annotations \u2014 referenced only by generated\n  TypeAdapter code in `*.g.dart` files\n- `@JsonSerializable` / `@JsonKey` \u2014 same risk\n- `@Riverpod` annotations on providers \u2014 referenced by generated `.g.dart`\n- Localization keys in `*.arb` files \u2014 referenced by generated `S.of(context)`\n- Asset paths in `pubspec.yaml` \u2014 referenced via string in code\n- Platform method channel handler names \u2014 string-matched at runtime\n- GoRouter route names declared as constants \u2014 string-matched\n\nWhen `dart analyze` flags any of the above as unused, treat as **low\nconfidence** automatically. Verify by checking the corresponding `.g.dart`\nfile or platform code before deletion.\n\n### Step 4: Produce the Review Report\n\nOutput to `/docs/audits/code-review/{YYYY-MM-DD}/CODE_REVIEW.md`. Create the dated directory if it doesn't exist. Use this structure:\n\n```markdown\n# Flutter Code Review Report\n\n## Summary\n- Total issues found: X\n- \ud83d\udd34 Critical: X | \ud83d\udfe1 Medium: X | \ud83d\udfe2 Low: X\n- Estimated performance impact: [brief summary]\n\n## Automated Analysis Results\n[Output from dart analyze, pub outdated, etc.]\n\n## Findings by Category\n\n### 1. Widget & Rebuild Optimization\n#### Finding 1.1: [Title] \ud83d\udd34\n- **File**: `lib/screens/home.dart:45`\n- **Issue**: [What's wrong]\n- **Why it matters**: [Performance/stability impact]\n- **Fix**:\n  ```dart\n  // Before\n  [problematic code]\n\n  // After\n  [fixed code]\n  ```\n\n[...repeat for each finding...]\n\n### 9. Dead Code & Unused Files\n> \u26a0\ufe0f Candidates only \u2014 verify manually before deleting. Confidence levels indicated.\n\n[Findings grouped by High / Medium / Low confidence]\n\n## Dependency Audit\n[Table of outdated/risky dependencies]\n\n## CI/CD Recommendations\n[Pipeline configuration suggestions]\n\n## Quick Wins\n[Top 5 changes that will have the biggest impact with least effort]\n```\n\n### Severity Guidelines\n\n- \ud83d\udd34 **Critical**: Will cause crashes, data loss, security vulnerabilities, or severe performance degradation (jank, ANR, OOM). Fix before release.\n- \ud83d\udfe1 **Medium**: Causes noticeable performance issues, tech debt accumulation, or poor UX under specific conditions. Fix soon.\n- \ud83d\udfe2 **Low**: Style issues, minor inefficiencies, or improvements that make the code more maintainable. Fix when convenient.\n\n### Non-overlap with other skills\n\nThe following classes of issues belong to OTHER skills, not this one.\nIf found during review, flag briefly and defer:\n\n| Issue type | Belongs to | How to handle here |\n|---|---|---|\n| Layout overflow with extreme inputs | flutter-stress-test | Note \"verified by stress-test\" or \"stress-test should cover\" |\n| Missing privacy policy URL | app-store-prep | Note as \"release blocker \u2014 see app-store-prep\" |\n| Stale screens.md or features.md | doc-sync | Note as \"doc drift \u2014 run doc-sync regenerate\" |\n| Outdated screenshot in App Store | app-store-prep | Note as \"release blocker\" |\n\nDo NOT produce detailed findings or fixes for the above categories \u2014\nthat's the other skill's job. A one-line flag is enough.\n\n### Dead Code Confidence Levels\n\nFor category 9 specifically, use these labels alongside severity:\n\n- **High confidence**: Flagged by `dart analyze` (unused imports, unused private members, unreachable code). Safe to remove after a quick visual check.\n- **Medium confidence**: Heuristic findings (unreferenced files, unused public declarations, unreferenced assets). Require manual verification \u2014 search the IDE for usages, check for codegen annotations, check platform channels.\n- **Low confidence**: Suspected unused dependencies, suspected unused packages. Require a full build + smoke test in profile mode before removal.\n\n### Important Principles\n\n- **Show the fix, not just the problem.** Every finding must include a concrete code change \u2014 before and after.\n- **Be specific about impact.** Don't just say \"this is slow\" \u2014 explain what the user will experience (jank on scroll, slow startup, memory climbing over time).\n- **Respect the existing architecture.** Don't suggest rewriting the app in a different state management solution. Work within Riverpod.\n- **Prioritize by user impact.** A janky scroll affects every user every session. A memory leak in a rarely-visited screen is lower priority.\n- **Check before claiming.** Verify that an issue actually exists in the code before reporting it. False positives erode trust.\n- **For dead code, be conservative.** A false positive in category 9 means deleting live code and breaking the app. When in doubt, report as a candidate with confidence level \u2014 never delete automatically.\n\n## After Running This Skill\n\n1. Review CODE_REVIEW.md findings, triage by severity.\n2. Apply critical and high-priority fixes. Each behavioral fix updates\n   /docs/current/screens.md and decisions.md (use doc-sync mode 3).\n3. Quality fixes (dead code removal, refactor) typically don't need\n   doc-sync updates unless they change user-visible behavior.\n4. If multiple architectural fixes were applied, consider re-running\n   stress-test against the modified code.\n5. When code-review is clean, move to app-store-prep.\n",
+  "skill-flutter-stress-test.md": "---\nname: flutter-stress-test\ndescription: Generate comprehensive stress test plans, fuzzing data sets, misuse scenarios, and edge-case checklists for Flutter mobile apps. Use this skill whenever the user mentions stress testing, breaking, fuzzing, edge-case testing, chaos testing, or destructive testing of a Flutter or Dart mobile application. Also trigger when the user asks to \"try to break my app\", \"find bugs\", \"test weird inputs\", \"test error handling\", or wants to verify app resilience. Even if they just say \"test my app thoroughly\" or \"QA my Flutter app\", this skill applies. Run after the build is feature-complete, before flutter-code-review. Defer architectural issues (god objects, dependency cycles, dead code, tightly coupled modules) to flutter-code-review. Defer store metadata issues to app-store-prep. This skill is for *runtime behavior*, not *code quality* or *release readiness*.\n---\n\n# Flutter Stress Test Skill\n\nThis skill helps you generate a thorough, structured stress test plan for a Flutter mobile app. It produces three deliverables:\n\n1. **Screen-by-screen test checklists** \u2014 every widget, input, and interaction gets targeted chaos\n2. **Fuzzing data sets** \u2014 copy-paste-ready nasty inputs for every field type\n3. **Misuse & chaos scenarios** \u2014 real-world ways users (and the universe) will break the app\n\n## How to Use This Skill\n\n## Pre-flight checks\n\nBefore running, verify:\n- [ ] /docs/current/screens.md exists and is up to date \u2014 this skill\n      reads it to understand what screens to test\n- [ ] /docs/current/features.md shows features as `built` not `planned`\n- [ ] App builds and runs in profile mode\n\nIf any check fails, ask the user to resolve before proceeding. Running\nstress-test against incomplete documentation produces incomplete tests.\n\n### Step 1: Understand the App\n\nAsk the user to describe (or share the code of) their app. You need:\n\n- The list of screens/pages (routes)\n- What input fields exist on each screen (text fields, dropdowns, date pickers, sliders, toggles, file uploads, etc.)\n- **What display widgets render user data or computed values** (cards, tiles, stats, charts, counters, chips, list items) \u2014 these are where large numbers/long strings cause layout overflows\n- What backend/API calls the app makes\n- Any authentication flows\n- Any local storage (Hive, SharedPreferences, SQLite, etc.)\n- Platform targets (iOS, Android, Web)\n\nIf the user shares their codebase, scan it for:\n\n**Input surfaces (where data enters):**\n- All `TextFormField`, `TextField`, `DropdownButton`, `Slider`, `Switch`, `DatePicker`, `FilePicker` widgets\n- `keyboardType` values \u2014 `TextInputType.number`, `TextInputType.datetime`, etc. drive what fuzzing set to apply\n- `inputFormatters` \u2014 if present, confirm they actually clamp values; if absent, the field accepts anything\n\n**Display surfaces (where data renders \u2014 THIS IS WHERE LAYOUTS BREAK):**\n- `Text` widgets that interpolate state/model fields (especially numeric, currency, duration, percentage)\n- `NumberFormat`, `intl`, `toStringAsFixed` usages \u2014 these can produce very long strings for extreme values\n- Fixed-width containers rendering dynamic content: `Card`, `Chip`, `ListTile`, `Container` with fixed `width`/`height`\n- Chart/graph widgets (fl_chart, charts_flutter, syncfusion) \u2014 extreme values break axis scaling\n- `Row` children without `Expanded`/`Flexible` \u2014 guaranteed overflow risk\n- `Column` without `SingleChildScrollView` \u2014 vertical overflow risk\n- `Hero` and shared element transitions \u2014 these break dramatically when\n  source/destination sizes differ at extreme values\n- `AnimatedContainer` and animated layouts \u2014 extreme values cause\n  animation curves to overshoot, sometimes producing temporary\n  invisible-overflow states that golden tests miss\n\n**Flow surfaces:**\n- All `Navigator` routes or `GoRouter`/`AutoRoute` definitions\n- All HTTP/Dio/GraphQL calls\n- All state management (Provider, Riverpod, Bloc, GetX, etc.)\n- All local storage usage\n- All permission requests (camera, location, contacts, etc.)\n\n**Locale & parsing surfaces (silent wrong-number bugs):**\n- Raw `double.parse` / `int.parse` / `num.parse` on user-typed text \u2014 these are NOT locale-aware. Any app that ships in non-English markets must route through `NumberFormat.decimalPattern(locale).parse(...)`.\n- `DateFormat.parse` without an explicit locale.\n- `NumberFormat.currency()` without a locale \u2014 uses the system locale, which changes the output across users.\n\n**Soft-keyboard surfaces:**\n- Every `Scaffold`'s `resizeToAvoidBottomInset` setting. `false` is a common source of \"CTA hidden behind keyboard\" bugs.\n- Every bottom sheet / modal that contains a `TextField`.\n- Any CTA positioned at the bottom of a `Column` not wrapped in a scroll view.\n\n**Clipboard surfaces:**\n- Every `TextField` accepts paste. Fields with `inputFormatters` often enforce constraints on keystroke but not on paste.\n\nFor every display surface you find, add a **round-trip test**: submit an extreme input, then verify the rendered output fits its container without overflow, truncation losing meaning, or chart scale collapse.\n\n### Step 2: Generate the Test Plan\n\nFor each screen, produce a checklist covering ALL of the following categories. Read `references/test-categories.md` for the full category breakdown and specific test cases.\n\nThe test plan should be output as a **Markdown file** organized by screen, with checkboxes for each test case so the user (or tester) can track progress.\n\n### Step 3: Generate Fuzzing Data Sets\n\nRead `references/fuzzing-data.md` for the complete fuzzing payloads. Generate a Dart file (`stress_test_data.dart`) containing maps of test data organized by field type, so the user can programmatically feed them into their app or tests.\n\n### Step 4: Generate Misuse Scenarios\n\nRead `references/misuse-scenarios.md` for the full list. Tailor them to the specific app \u2014 skip irrelevant ones (e.g., skip camera scenarios if the app has no camera usage) and add app-specific ones.\n\n### Step 5: Generate Automated Test Stubs (Optional)\n\nIf the user wants, generate Flutter widget test and integration test stubs that exercise the edge cases. Use `flutter_test` and `integration_test` packages. Focus on:\n- Pumping widgets with extreme input values\n- Simulating rapid taps via `tester.tap()` in loops\n- Testing error states by mocking failed API responses\n- Testing widget overflow with long strings AND large numbers\n\n**Always include an overflow-detection harness.** Flutter's debug `RenderFlex overflowed` errors are visible in the console but not asserted on. Wrap each widget test with a `FlutterError.onError` listener that fails the test on any overflow, so the suite actually catches design breakage automatically:\n\n```dart\nvoid main() {\n  final overflowErrors = <FlutterErrorDetails>[];\n  final original = FlutterError.onError;\n\n  setUp(() {\n    overflowErrors.clear();\n    FlutterError.onError = (details) {\n      if (details.exceptionAsString().contains('overflow')) {\n        overflowErrors.add(details);\n      }\n      original?.call(details);\n    };\n  });\n\n  tearDown(() {\n    expect(overflowErrors, isEmpty,\n        reason: 'Layout overflow was detected during the test.');\n  });\n\n  // Iterate every display widget \u00d7 every breaking value \u00d7 every viewport \u00d7 every text scale.\n  // A passing test at one size/scale does NOT imply the layout is safe elsewhere.\n  for (final size in StressTestData.viewportSizes) {\n    for (final scale in StressTestData.textScales) {\n      for (final value in StressTestData.displayBreakingNumbers) {\n        testWidgets(\n          'MetricCard renders $value at ${size.width}x${size.height} @ ${scale}x',\n          (tester) async {\n            await tester.binding.setSurfaceSize(size);\n            addTearDown(() => tester.binding.setSurfaceSize(null));\n            await tester.pumpWidget(MediaQuery(\n              data: MediaQueryData(\n                size: size,\n                textScaler: TextScaler.linear(scale),\n              ),\n              child: MaterialApp(home: MetricCard(value: value)),\n            ));\n            await tester.pumpAndSettle();\n            // Overflow assertion happens in tearDown via FlutterError.onError.\n          },\n        );\n      }\n    }\n  }\n\n  // Soft-keyboard overlap: simulate `viewInsets.bottom = 300` with any\n  // focused field and assert the primary CTA is still visible.\n  testWidgets('Submit button visible when keyboard is open', (tester) async {\n    await tester.binding.setSurfaceSize(const Size(360, 640));\n    await tester.pumpWidget(MediaQuery(\n      data: const MediaQueryData(viewInsets: EdgeInsets.only(bottom: 300)),\n      child: MaterialApp(home: FormScreen()),\n    ));\n    await tester.pumpAndSettle();\n    expect(find.byKey(const Key('submitButton')), findsOneWidget);\n    expect(tester.getRect(find.byKey(const Key('submitButton'))).bottom, lessThanOrEqualTo(340));\n  });\n\n  // Semantics check: extreme values should not produce nonsense\n  // announcements like \"NaN percent\" for screen readers.\n  testWidgets('ProgressRing semantics label is sane for NaN', (tester) async {\n    await tester.pumpWidget(MaterialApp(home: ProgressRing(value: double.nan)));\n    final sem = tester.getSemantics(find.byType(ProgressRing));\n    expect(sem.label, isNot(contains('NaN')));\n    expect(sem.label, isNot(contains('Infinity')));\n  });\n}\n```\n\nGenerate one such harness per display widget surface you identified in Step 1. This is the single highest-value test artifact this skill produces \u2014 it catches the entire class of \"large number breaks the design\" bugs in CI, not just during manual QA.\n\n**Also generate a small golden-image suite** for the 3\u20135 most data-dense widgets (stat card, chart, progress ring, summary tile, list row). Capture a golden per representative state \u00d7 per extreme value \u00d7 per viewport. Use `matchesGoldenFile(...)`. This catches visual regressions that don't throw \u2014 truncated labels, dropped contrast, misaligned content after formatting changes \u2014 which overflow assertions miss entirely.\n\n## Output Structure\n\nDeliver the following files:\n\n```\n/docs/audits/stress-test/{YYYY-MM-DD}/\n\u251c\u2500\u2500 TEST_PLAN.md              # Full checklist organized by screen\n\u251c\u2500\u2500 stress_test_data.dart      # Fuzzing payloads as Dart constants\n\u251c\u2500\u2500 MISUSE_SCENARIOS.md        # Chaos and misuse scenario descriptions\n\u2514\u2500\u2500 test_stubs/                # (Optional) Generated test files\n    \u251c\u2500\u2500 input_fuzzing_test.dart\n    \u2514\u2500\u2500 chaos_integration_test.dart\n```\n\n## Important Principles\n\n- **Be app-specific.** Don't just dump a generic checklist. Tailor every test to the actual screens, fields, and flows the user described.\n- **Prioritize by risk.** Mark tests as \ud83d\udd34 Critical, \ud83d\udfe1 Medium, or \ud83d\udfe2 Low based on how likely they are to cause crashes, data loss, visual breakage, or security issues.\n- **Include the \"why.\"** For each test case, briefly explain what bug it's hunting for (e.g., \"Tests whether the app crashes when TextField receives a 10,000-character string \u2014 common cause of jank and OOM on low-end devices\").\n- **Cover both platforms.** Note when a test is iOS-specific or Android-specific (e.g., back button behavior, permission dialogs, notch/cutout handling).\n- **Test input AND display.** A test isn't done when the input is accepted \u2014 it's done when the resulting value has been rendered in every place it appears without breaking layout. Large numbers, long strings, and negative values commonly pass input validation but shatter the UI downstream.\n- **Think like a chaos monkey.** The goal is to break things. Be creative and adversarial.\n\n## Common Bug Classes This Skill Must Catch\n\nThese are failure modes that generic test plans routinely miss \u2014 always check for them:\n\n1. **RenderFlex overflow from large numbers.** A counter styled for \"42\" looks fine; the same widget rendering `999,999,999,999` overflows its `Row`. Any numeric display must be tested with 12+ digit values.\n2. **Chart axis collapse.** One data point of `1e20` flattens every other bar to pixel zero. One `NaN` or `Infinity` value crashes the chart. Always inject extreme and non-finite values into chart data.\n3. **Formatted-string explosion.** `toStringAsFixed(10)` on `1/3` produces a 12-char string; on a large number it can produce 20+. Currency formatting adds separators \u2014 `$1,234,567,890.00` is longer than users expect.\n4. **Negative values in \"count\" fields.** Progress bars, percentages, goal meters often assume `value >= 0`. Negative input either clips weirdly, inverts the bar, or throws.\n5. **Zero/divide-by-zero in ratios.** Averages, percentages, and rates break silently or show `NaN%` / `Infinity` on screen.\n6. **Text scale \u00d7 long value.** A number that fits at 1.0x font scale overflows at 2.0x. Always test extreme values combined with 200% font scale.\n7. **Persisted garbage.** A too-large number saved to Hive/SharedPreferences re-hydrates on every launch and crashes the app permanently until the user clears data. Test persistence round-trips with every extreme value.\n8. **Unbounded list growth breaking layouts.** 10,000 items in a `Wrap` or non-virtualized scroll view tanks the frame budget and can overflow parent constraints.\n9. **Locale-flipped decimal/thousands separators.** `double.parse(\"1,5\")` fails; `\"1.000\"` parses to `1.0` instead of `1000`. Any numeric text input must go through `NumberFormat.localizedOf(context).parse(...)`, not raw `double.parse`.\n10. **Soft keyboard hides the CTA.** `Scaffold.resizeToAvoidBottomInset: false`, or a bottom-anchored submit button not inside a scroll view, becomes unreachable when the keyboard opens.\n11. **Clipboard paste bypasses `inputFormatters`.** Formatters enforced on keystroke are sometimes ignored on paste; a 1 MB paste freezes the UI.\n12. **Screen reader announces \"NaN percent\" / \"Infinity\".** `Semantics` labels that interpolate extreme values leak formatting bugs into accessibility announcements.\n13. **Layouts pass 360\u00d7640 but fail at 320\u00d7568 or landscape.** A single viewport test is not enough; always loop the viewport matrix.\n\nWhen you generate the test plan, every numeric input field must spawn tests for classes 1\u20137 and 9 at minimum; every text input field must cover 10 and 11; every displayed extreme value must cover 12; every display widget must cover 13.\n\n## After Running This Skill\n\n1. Review TEST_PLAN.md, triage findings into:\n   - Must fix now (crashes, data loss, severe layout breakage)\n   - Should fix this release (significant UX issues)\n   - Won't fix (acceptable edge cases, known limitations)\n2. Apply fixes. Each fix that changes user-visible behavior must update\n   /docs/current/screens.md and append to decisions.md (use doc-sync\n   skill, mode 3).\n3. Re-run this skill if architectural fixes were needed. Output to a\n   new dated folder, do not overwrite the previous run.\n4. When stress-test is clean, move to flutter-code-review.\n"
+};
+
+// ─── ICONS ───────────────────────────────────────────────────────────
+const IC = {
+  user: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+  robot: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16.01"/><line x1="16" y1="16" x2="16" y2="16.01"/></svg>`,
+  doc: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>`,
+  image: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
+  chev: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`
+};
+
+const ACTOR_CFG = {
+  you:           { label: 'User',           cls: 'ap-you',  iconKey: 'user'  },
+  'claude-web':  { label: 'Claude · Web',  cls: 'ap-web',  iconKey: 'robot' },
+  'claude-code': { label: 'Claude · Code', cls: 'ap-code', iconKey: 'robot' }
+};
+
+// ─── PHASE / STEP DATA ───────────────────────────────────────────────
+const PHASES = [
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'0', name:'Prerequisites', blurb:'One-time setup — skip for subsequent projects.',
+    steps:[{
+      n:'0A', title:'Install development tools and set up accounts',
+      actors:['you'], badge:'One-time',
+      achieves:'Get the local workshop ready. Flutter installed, IDE configured, emulator running, and store accounts active. Without these, every downstream step hits a wall.',
+      todos:[
+        { a:'you', t:'<strong>Install local dev tools:</strong> Flutter SDK (run <code>flutter doctor</code> until clean), VS Code, Claude Code CLI, Android Studio (emulator + Android SDK), Xcode (Mac, required for iOS builds), Git.' },
+        { a:'you', t:'<strong>VS Code extensions:</strong> Flutter, Dart, Claude Code. Optional: GitLens for nicer history annotations.' },
+        { a:'you', t:'<strong>Android emulator:</strong> create a device in Android Studio (e.g. Pixel 7, latest API). Verify <code>flutter run</code> lands on it successfully.' },
+        { a:'you', t:'<strong>Store and service accounts:</strong> Apple Developer Program (required for TestFlight + App Store — sign up at developer.apple.com), Google Play Console (sign up at play.google.com/console), GitHub account + SSH key on this machine. Codemagic account for CI/CD (codemagic.io — used in later phases for automated builds and store deployment).' }
+      ],
+      artifacts:[]
+    },{
+      n:'0B', title:'Configure Claude Code globally',
+      actors:['you'], badge:'One-time',
+      achieves:'Set up Claude Code so it knows your preferences, has the right skills installed, and protects you automatically on every future project. This configuration travels with you — you only do it once.',
+      todos:[
+        { a:'you', t:'<strong>Global Claude Code setup</strong> (one-time — applies to every future project).<br><br><strong>① CLAUDE.md</strong> — The master instruction file at <code>~/.claude/CLAUDE.md</code>. Claude reads this at the start of every session, across all projects. It sets global behavioral rules so you never have to repeat them per project.<br><strong>What it contains:</strong> Think-before-coding rules (state assumptions, surface tradeoffs, ask when unclear) · Simplicity-first (no speculative features, no over-engineering) · Surgical changes (touch only what the task requires) · Goal-driven execution (define verifiable success criteria before starting) · Mobile best practices (offline-first, accessibility, 60fps, real-device testing) · Code quality (defensive code, error handling, prefer immutability) · Security (no secrets in source, HTTPS, least-privilege permissions) · Design &amp; UX (minimalism, thumb-friendly touch targets, progressive disclosure) · App Store compliance (HIG + Material guidelines, privacy policy, platform billing) · Global prohibitions (no hardcoded values, no print() logging, no linter suppression without a comment explaining why).<br><br><strong>② Skills</strong> — Reusable, invocable workflows that extend Claude Code for a specific task. Type <code>/skill-name</code> in a session to invoke. Stored in <code>~/.claude/skills/</code>.<br>• <code>doc-sync</code> — Updates <code>/docs/current/</code> to match code changes (screens, features, decisions log)<br>• <code>flutter-stress-test</code> — Simulates misuse and edge cases to stress-test the app before release<br>• <code>flutter-code-review</code> — Deep audit covering architecture, async patterns, CI/CD readiness, and release quality<br>• <code>app-store-prep</code> — Audits the project for App Store / Play Store submission readiness<br>• <code>notebooklm</code> — Finds top sources and synthesises them via NotebookLM for a grounded research foundation before starting work<br>• <code>skill-creator</code> — Creates, modifies, and evaluates new custom skills<br><br><strong>③ Hooks</strong> — Shell scripts that Claude Code runs automatically at lifecycle events, with no manual trigger. Set up in <code>~/.claude/settings.json</code> under the <code>"hooks"</code> key, mapped to an event type with an optional tool matcher. Exit code 2 from a hook blocks the action; exit 0 allows it. Event types: <code>PreToolUse</code> (before a tool call), <code>PostToolUse</code> (after), <code>Notification</code> (when Claude fires an alert), <code>Stop</code> (before Claude finishes a task).<br>• <code>block-dangerous.sh</code> — <em>PreToolUse › Bash</em> — Intercepts every terminal command and blocks destructive patterns like <code>rm -rf /</code>, <code>git push --force</code>, <code>git reset --hard</code>, and <code>DROP TABLE</code><br>• <code>protect-sensitive.sh</code> — <em>PreToolUse › Write|Edit</em> — Blocks writes to sensitive files: <code>.env</code>, <code>.pem</code>, <code>.key</code>, <code>.p12</code>, <code>.keystore</code>, <code>.jks</code>, <code>id_rsa</code>, and anything named "secrets"<br>• <code>format-dart.sh</code> — <em>PostToolUse › Write|Edit</em> — Runs <code>dart format</code> on every <code>.dart</code> file after Claude saves it, keeping formatting consistent automatically<br>• <code>notify-windows.ps1</code> — <em>Notification</em> — Fires a Windows toast notification whenever Claude needs your attention (long builds, store submissions, dependency installs, etc.)<br>• <code>verify-before-stop.sh</code> — <em>Stop</em> — Runs <code>flutter test</code> before Claude marks a task complete (only after a <code>.dart</code> file was edited in this session), to keep the cost reasonable while still catching breakage' }
+      ],
+      artifacts:['global-CLAUDE.md','settings.json','block-dangerous.sh','protect-sensitive.sh','format-dart.sh','notify-windows.ps1','verify-before-stop.sh','skill-notebooklm.md','skill-creator.md','skill-app-store-prep.md','skill-doc-sync.md','skill-flutter-code-review.md','skill-flutter-stress-test.md']
+    }]
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'I', name:'Define', blurb:'Write the stories. Shape them into requirements. Drive out the ambiguity.',
+    steps:[
+      {
+        n:1, title:'Set up project repo and project CLAUDE.md',
+        actors:['you','claude-code'], badge:'Start here',
+        achieves:'Establish the workspace before writing any documentation. The repo and CLAUDE.md exist from the first moment so every downstream step has a home and Claude Code has its operating instructions from day one.',
+        todos:[
+          { a:'you', t:'Run <code>flutter create my_app</code>, <code>cd my_app</code>, <code>git init</code>, push to GitHub.' },
+          { a:'you', t:'<strong>Verify <code>.gitignore</code></strong> covers Flutter defaults (<code>/build/</code>, <code>.dart_tool/</code>, <code>.flutter-plugins</code>, <code>*.iml</code>, <code>.idea/</code>, <code>ios/Pods/</code>, <code>android/.gradle/</code>) plus <code>.env</code>, <code>*.keystore</code>, <code>*.p12</code>. <code>flutter create</code> generates a starter — review it and add the credential extensions before the first commit.' },
+          { a:'you', t:'Create the doc folder skeleton on disk:<br><code>/docs/spec/</code> · <code>/docs/current/</code> · <code>/docs/audits/</code> · <code>/docs/design/mockups/</code> · <code>/docs/design/mockups/themed/</code>' },
+          { a:'claude-code', t:'<strong>Draft the initial <code>CLAUDE.md</code></strong> using the template in the artifact below as the structural source of truth. Review every line — this file governs every Claude Code session for the whole project.', prompt:`Create CLAUDE.md at the project root.
+
+Use the CLAUDE.md template I'm sharing as the structural reference (current phase, files in scope, files NOT auto-read, workflow rules, phase transitions table, active skills, project-specific rules).
+
+For this initial version, set:
+- Current phase: Define (Phase I)
+- Current slice: N/A — not building yet
+- Last updated: today's date
+- Files in scope this phase: just requirements.md (once created)
+- Leave Project-specific rules section as a placeholder — we'll fill in tech stack, theme, and target platforms as decisions are made in later steps.
+
+Show me the draft before writing.` },
+          { a:'you', t:'<strong>Git:</strong> initial commit.<br><code>git add .gitignore CLAUDE.md docs/</code><br><code>git commit -m "scaffold: docs structure + CLAUDE.md"</code>' }
+        ],
+        artifacts:['CLAUDE.md']
+      },
+      {
+        n:2, title:'Write user stories, must-haves, and out-of-scope',
+        actors:['you'], badge:'Manual — no Claude',
+        achieves:'Capture the core experience in your own words before any tool gets involved. The Out of Scope section is the single highest-leverage piece of text in the whole project — it prevents scope creep for months.',
+        todos:[
+          { a:'you', t:'Create <code>user_stories.md</code> in the project root.' },
+          { a:'you', t:'<strong>Start with a high-level app summary</strong> — 2–4 sentences: what is this app, what problem does it solve, who is it for, what makes it different from existing apps. This becomes the foundation for everything Claude generates later.' },
+          { a:'you', t:'Write 2–3 personas in one sentence each: who they are, what they care about, why they would quit other apps in this space.' },
+          { a:'you', t:'Write 3–6 primary user journeys. For each: persona, goal, step-by-step path through the app, success state. Stay at user intent — no screens, no tech decisions yet.' },
+          { a:'you', t:'List must-haves, should-haves, and nice-to-haves as bullets. Be terse.' },
+          { a:'you', t:'<strong>Write the Out of Scope section.</strong> Examples: "no user accounts", "no cloud sync", "no notifications in v1", "no home screen widgets". Specificity here pays back monthly.' },
+          { a:'you', t:'List hard constraints: platform (iOS/Android/both), minimum OS versions, languages, privacy rules, anything non-negotiable.' },
+          { a:'you', t:'<strong>Git:</strong> <code>git add user_stories.md && git commit -m "spec: initial user stories + out-of-scope"</code>' }
+        ],
+        artifacts:['user_stories.md']
+      },
+      {
+        n:3, title:'Generate requirements.md and resolve open questions',
+        actors:['claude-web','you'], badge:'Combined',
+        achieves:'Transform rough notes into a complete, structured requirements document — then drive all ambiguity out of it before any design work begins. Each unresolved question is a future bug or argument with yourself mid-build.',
+        todos:[
+          { a:'you', t:'Open Claude in your browser. Upload <code>user_stories.md</code>.' },
+          { a:'claude-web', t:'Generate the full requirements document with the canonical 13-section structure.', prompt:`I'm starting a new mobile app project. Produce a complete requirements.md from my user_stories.md following exactly this section structure:
+
+1. App Overview (core value proposition + differentiator)
+2. Target Audience (primary + secondary user + assumed technical level, with "> Confirmed:" callouts)
+3. Features (§3.1 Must Have, §3.2 Should Have, §3.3 Nice to Have — each as a table: Feature | Description)
+4. User Journeys (numbered, each with step-by-step path + "> Confirmed:" callouts)
+5. User Stories ("As a [user], I want to [action], so that [benefit]" grouped by domain)
+6. Acceptance Criteria (Given / When / Then grouped by feature area)
+7. Screens & Navigation (Screen List table: # | Screen | Nav Bar | Access Point | Key Components, then ASCII navigation flow)
+8. Data Requirements (data models as tables: Field | Type | Description; include unit mappings, enums, relationship notes)
+9. Non-Functional Requirements (Performance, Offline, Accessibility, Privacy, Platforms, Dark Mode — with "> Confirmed:" for each locked decision)
+10. Out of Scope (bullet list with reason per item)
+11. Resolved Questions (table: # | Question | Resolution)
+12. Open Questions (numbered list, or "No open questions remaining" when empty)
+13. Revision History (table: Date | Change | Author)
+
+Rules:
+- Never invent features I didn't ask for — put gaps in Open Questions instead of adding them silently
+- Be specific ("screens load under 200ms", not "fast")
+- Flag contradictions in my input under Open Questions
+
+Here is my user_stories.md:
+>>> PASTE user_stories.md HERE <<<` },
+          { a:'you', t:'Read the draft top to bottom. Answer every item in Section 12 by editing the answer into its proper section with a <code>> Confirmed:</code> callout. Delete the resolved item from Section 12.' },
+          { a:'you', t:'Re-read. New questions usually surface as you read — answer those too. Repeat until Section 12 reads "No open questions remaining." Usually 1–2 passes.' },
+          { a:'you', t:'Save <code>requirements.md</code> to the project root.' },
+          { a:'you', t:'<strong>Git:</strong> <code>git add requirements.md && git commit -m "spec: requirements.md, open questions resolved"</code>' }
+        ],
+        artifacts:['user_stories.md','requirements.md']
+      },
+      {
+        n:4, title:'Pre-build spec review with Claude Code',
+        actors:['claude-code','you'], badge:'Quality gate',
+        achieves:'Run a structured validation of requirements.md before any design work begins. Six targeted prompts — run in a single Claude Code session — surface gaps, unvalidated assumptions, scope risks, technical hazards, and missing screens. Catching these now costs nothing. Catching them in build costs days.',
+        todos:[
+          { a:'you', t:'Start a Claude Code session. Upload <code>requirements.md</code> and <code>CLAUDE.md</code>. Run the six prompts below in sequence, one at a time. Resolve or document each finding before moving to the next. <strong>Run <code>/compact</code> after each prompt</strong> — six substantial responses will otherwise fill context fast.' },
+          { a:'claude-code', t:'<strong>① Initial spec review</strong> — high-level sanity check.', prompt:`Review requirements.md and CLAUDE.md. Identify any gaps, ambiguities, or missing information before we start building. Be specific — vague concerns aren't actionable.` },
+          { a:'claude-code', t:'<strong>② Validate use cases from user stories</strong> — completeness check.', prompt:`Based on the user stories in requirements.md, derive the full use case list and flag any conflicts or missing edge cases. For each use case, note whether it has a corresponding acceptance criterion.` },
+          { a:'claude-code', t:'<strong>③ Surface assumptions</strong> — make the invisible visible.', prompt:`What assumptions are you making about this app that aren't explicitly stated in requirements.md? List them so we can confirm or correct them before writing any code.` },
+          { a:'claude-code', t:'<strong>④ Define scope boundaries</strong> — verify Out of Scope is doing its job.', prompt:`Based on requirements.md, what features or behaviors are out of scope for v1? What should we explicitly NOT build yet? Call out anything in must-have or should-have that looks like scope creep in disguise — features that could be deferred without breaking the core value proposition.` },
+          { a:'claude-code', t:'<strong>⑤ Identify technical risks</strong> — architecture early warning.', prompt:`What are the highest-risk technical decisions in this spec? What would you need clarified before writing any code? Rank risks by likelihood × impact.` },
+          { a:'claude-code', t:'<strong>⑥ Navigation logic validation</strong> — check the flow graph for holes.', prompt:`Walk through each user flow end to end against the navigation tree in Section 7. Focus on navigation logic, not screen inventory completeness:
+- Are there dead-end states (screens you can reach but can't leave gracefully)?
+- Are there back/cancel paths that aren't defined?
+- Are there flows that require a screen that exists but is never linked from anywhere?
+- Are there modal/sheet dismissals that drop the user in the wrong place?
+- Does every "happy path" have a matching error/empty path defined?` },
+          { a:'you', t:'For each finding: decide whether to (a) update requirements.md, (b) accept it as a known risk, or (c) add to decisions.md. Update <code>requirements.md</code> Section 13 with a revision history entry.' },
+          { a:'you', t:'<strong>Git:</strong> <code>git add requirements.md && git commit -m "spec: requirements review, findings resolved"</code>' }
+        ],
+        artifacts:['requirements.md']
+      }
+    ]
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'II', name:'Design', blurb:'Generate the mockups. Apply the theme. Extract the system.',
+    steps:[
+      {
+        n:5, title:'Generate low-fidelity mockups: 5 alternatives per screen',
+        actors:['claude-web','you'], badge:'AI-generated',
+        achieves:'Get from requirements to a complete set of layout options without needing a designer. This is the <em>low-fidelity</em> pass — the goal is to commit to which UI components belong on each screen (toggle vs. checkbox, slider vs. stepper, list vs. grid) and how they\'re arranged in space. The visual style is secondary at this stage — Step 6 will replace it with a unified theme. You then mix and match: "use screen 3 from option A, but the navigation from option C, and the card layout from option B." The result is your committed structural direction.',
+        todos:[
+          { a:'you', t:'Open Claude in your browser. Upload <code>requirements.md</code>. Use a tool that can render UI mockup interfaces (rendered HTML/React mockup interfaces, not images): Claude with artifacts, v0.dev, or Figma AI.' },
+          { a:'claude-web', t:'Generate 5 complete mockup alternatives per screen, each exploring a different layout and component direction. Ask for actual rendered interfaces, not prompts.', prompt:`I need UI mockup screens for a mobile app. Based on my requirements.md, generate 5 complete screen mockups for each screen in the Screen Inventory. Each of the 5 alternatives should be a distinct structural direction:
+
+Direction 1 — Minimal / utilitarian: function over form, generous whitespace, system typography
+Direction 2 — Information-dense: power-user oriented, more data per screen, compact
+Direction 3 — Playful / illustrative: character, custom illustrations, color and warmth
+Direction 4 — Premium / editorial: typography-led, magazine-like, high contrast
+Direction 5 — Platform-native: strict iOS HIG conventions, SF Pro, standard components
+
+Render each as rendered HTML/React mockup interfaces (375×812 iPhone frame) showing:
+- Actual layout with placeholder content (not wireframes)
+- Navigation elements positioned correctly
+- All key components from the screen's feature list — specifically commit to a control choice per input (toggle/checkbox/slider/stepper, list/grid, etc.)
+- Empty AND filled states where relevant
+
+Label each: "Screen [N] — [Screen Name] — Direction [1-5]: [Direction Name]"
+
+Start with the 3 most important screens.` },
+          { a:'you', t:'Review all generated mockups. Note which direction you prefer per screen. Identify specific UI components and layouts you want to mix and match across directions.' },
+          { a:'you', t:'<strong>Iterate</strong> with follow-up prompts to mix components across directions and refine until committed. Example: "For the dashboard, use the card layout from Direction 3 but the navigation from Direction 1 and the data display from Direction 2."' },
+          { a:'you', t:'Export and save the final mockups to <code>/docs/design/mockups/</code>, one file per screen (e.g., <code>01_splash_final.png</code>, <code>02_dashboard_final.png</code>). These become the structural source of truth for the high-fidelity theming pass in Step 6.' },
+          { a:'you', t:'<strong>Git:</strong> <code>git add docs/design/mockups/ && git commit -m "design: low-fi mockups, structural direction committed"</code>' }
+        ],
+        artifacts:[{name:'mockup files', note:'saved to /docs/design/mockups/', isImage:true}]
+      },
+      {
+        n:6, title:'Apply a high-fidelity theme to the mockups',
+        actors:['you','claude-web'], badge:'High-fidelity pass',
+        achieves:'Turn the low-fidelity mockups from Step 5 into high-fidelity ones with a distinct, cohesive visual identity — committed color palette, typography, component styling. Individual screen mockups from Step 5 rarely feel like they belong to the same app — colors drift, spacing varies, typography is inconsistent. This step applies a UIKit or custom theme to unify everything, so the design system extraction in Step 7 produces clean, consistent tokens rather than averaged noise.',
+        todos:[
+          { a:'you', t:'<strong>Choose your theming approach:</strong><br>Option A: Apply an existing UIKit (Material 3, iOS Human Interface Guidelines, a premium kit from UI8 or Mobbin)<br>Option B: Define a custom theme via prompts<br>Option C: Use a design AI tool (Figma AI, Magician, UXPilot) to apply a consistent theme across screens' },
+          { a:'claude-web', t:'<strong>Option B — Custom theme via Claude:</strong> Upload all mockups and define your theme with this prompt.', prompt:`I have [N] screen mockups for a mobile app. I want to apply a single coherent visual theme across all of them. Here is the theme I want:
+
+Color palette:
+- Primary background: [describe — e.g., "deep anthracite dark mode, #1E2228"]
+- Accent: [describe — e.g., "forest green, #2EA043"]
+- Surface / card: [describe]
+- Text: [describe]
+
+Typography:
+- Use [system font / specific font name]
+- Scale: [describe — e.g., "compact, information-dense"]
+
+Component style:
+- Cards: [describe — e.g., "no shadows, thin borders, rounded 10px"]
+- Buttons: [describe — e.g., "filled accent, 36px height, 10px radius"]
+- Inputs: [describe]
+- Navigation: [describe]
+
+Mood / feel: [describe in plain language — e.g., "professional but warm, similar to GitHub's dark mode but with more personality"]
+
+Apply this theme consistently to every screen. Keep the layouts from the original mockups, only change the visual styling.` },
+          { a:'you', t:'<strong>Option A — UIKit:</strong> Import the UIKit into Figma (or use the AI tool\'s component library). Apply the kit\'s components by mapping your mockup elements to kit components. Ensure all screens use the same component variants.' },
+          { a:'you', t:'Review the themed screens together as a set. Check: do they look like they belong to the same app? Correct any screens that feel inconsistent.' },
+          { a:'you', t:'Save themed mockups to <code>/docs/design/mockups/themed/</code> (created in Step 1).' },
+          { a:'you', t:'<strong>Git:</strong> <code>git add docs/design/mockups/themed/ && git commit -m "design: high-fi themed mockups"</code>' }
+        ],
+        artifacts:[{name:'themed mockup files', note:'saved to /docs/design/mockups/themed/', isImage:true}]
+      },
+      {
+        n:7, title:'Extract design system and screen specs',
+        actors:['claude-web','you'], badge:'Combined',
+        achieves:'Codify the now-consistent visual decisions as reusable tokens (design_system.md), then produce a behavioral specification for every screen (screen_specs.md). Together these are the build manual. Without them, every screen reinvents its own colors, spacing, and edge-case handling.',
+        todos:[
+          { a:'you', t:'Upload all <em>themed</em> mockup images from <code>/docs/design/mockups/themed/</code> to Claude (web).' },
+          { a:'claude-web', t:'Extract the complete design system from the themed mockups.', prompt:`Below are the final themed mockups for my app. Produce design_system.md following exactly this structure:
+
+# Design System
+> Theme description (dual mode / dark only — note ThemeMode setting)
+
+## Color Palette
+- Backgrounds — table with columns: Token | Hex | Usage (separate Dark and Light tables if dual mode)
+- Text — table
+- Accent — table (primary, dark variant, light variant)
+- Semantic — table (success, danger, warning, info, any others)
+- Borders — table
+- Any special palettes (e.g., randomly assigned metric colors, chart line colors)
+
+## Typography
+Table: Style | Font | Weight | Size | Usage
+Font family declaration. Letter-spacing rules.
+
+## Spacing (table: Token | Value | Usage)
+## Border Radius (table: Token | Value | Usage)
+## Shadows / Elevation (table — if using borders instead of shadows, explain the philosophy)
+## Icons (icon set name, nav icon sizes, inline icon sizes, stroke weights, list of nav icons + other icons used, illustration style)
+
+## Shared Components
+One subsection per component appearing 2+ times. Each with a property table:
+- CTA Button variants: Filled / Outline / Disabled / Secondary / Danger
+- Dual CTA Row (flex layout + gap)
+- Text Input
+- Toggle Switch
+- Chip Selector (default state + selected state, conditional rendering rules)
+- Card (standard + any tinted variants)
+- Bottom Sheet (drag handle spec, dim overlay, border-radius)
+- Progress Bar
+- [any other recurring components]
+
+## Interactions & Transitions (table: Trigger | Behavior)
+## Data Display Conventions (numbers, dates, units, empty states, variance indicators, truncation rules)
+
+Be exhaustive. If a value is visible in the mockups and not in this document, the system is incomplete.` },
+          { a:'claude-web', t:'Same session — generate screen_specs.md, cross-referencing all three inputs.', prompt:`Using requirements.md (behavior), design_system.md (visuals), and the themed mockup images, produce screen_specs.md following exactly this structure:
+
+# Screen Specifications
+> All screens reference design_system.md for token values.
+
+## Navigation Structure
+ASCII tree showing the bottom tab bar (or nav pattern) and all sub-screen hierarchies.
+
+## Then one section per screen:
+
+## N. Screen Name
+**ID:** \`NN_screen_id\` | **Nav bar:** Yes/No | **Layout:** [Column / Scrollable column / Bottom sheet XX%]
+
+**Components:**
+1. **[Component name]** — [spec details using token names from design_system.md, sizes, animation timing]
+   - [sub-detail as needed]
+
+**Behavior:**
+- [Transitions, timing, validation rules, edge cases]
+- [What triggers navigation]
+
+**Interactions:**
+- Tap [element] → [action or navigation]
+
+Flag conflicts between requirements and mockup at the top of each screen's section as "Conflicts to resolve:". Don't silently choose one — surface it.` },
+          { a:'you', t:'Save both files to the project root.' },
+          { a:'you', t:'<strong>Git:</strong> <code>git add design_system.md screen_specs.md && git commit -m "design: design_system.md + screen_specs.md"</code>' }
+        ],
+        artifacts:['design_system.md','screen_specs.md']
+      }
+    ]
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'III', name:'Reconcile', blurb:'Surface the conflicts. Resolve them. Freeze the spec.',
+    steps:[{
+      n:8, title:'Run gap analysis, reconcile, and freeze v1',
+      actors:['claude-web','you','claude-code'], badge:'Critical moment',
+      achieves:'Surface every contradiction between the three planning documents, resolve each one, then freeze them as <code>/docs/spec/v1/</code> — the permanent record of original intent. After the freeze, the spec never changes. This is the most consequential step in the whole project: it ends the planning phase and begins the build.',
+      todos:[
+        { a:'you', t:'Upload <code>requirements.md</code>, <code>design_system.md</code>, <code>screen_specs.md</code> to Claude (web).' },
+        { a:'claude-web', t:'Run the gap analysis — surfaces conflicts and drift only, deliberately resolves nothing.', prompt:`Compare these three documents against each other. Output two lists only:
+
+(1) Conflicts — places where two documents contradict each other. Quote from each source precisely.
+
+(2) Drift — content present in one document with no counterpart in another:
+  • Functionality in screen_specs not covered in requirements
+  • Requirements with no corresponding screen
+  • Components in design_system unused in any screen_spec
+  • Visual specs in screen_specs undefined in design_system
+
+Do not resolve anything. Do not suggest which side is right. Surface only.` },
+        { a:'you', t:'For each conflict and drift item: decide which document is correct, update the wrong one. Your call entirely — Claude doesn\'t know what you actually want.' },
+        { a:'you', t:'Re-run the gap analysis prompt until it returns empty. Usually 2–3 passes.' },
+        { a:'you', t:'<strong>Open a fresh Claude Code session</strong> for the v1 freeze. Run the four prompts below in sequence, one at a time. Run <code>/compact</code> between prompts if context gets tight.' },
+        { a:'claude-code', t:'<strong>① Freeze the spec</strong> — copy authoritative docs to immutable history.', prompt:`Create /docs/spec/v1/ and copy requirements.md, design_system.md, and screen_specs.md into it verbatim. These are now frozen history — never edit them again. After copying, show me the three file paths under /docs/spec/v1/ so I can confirm.` },
+        { a:'claude-code', t:'<strong>② Generate living docs</strong> — terse working snapshots of current state.', prompt:`Generate two living documents:
+
+1. /docs/current/screens.md — one ## section per screen with:
+   **Purpose:** [one sentence]
+   **Behaviors:** [bullet list]
+   **Navigation:** From: [x] / To: [y]
+   **State:** [what it reads/writes]
+
+2. /docs/current/features.md — feature inventory grouped by domain:
+   ### [Feature]
+   - **Status:** planned
+   - **Screens involved:** [list]
+   - **Notes:** [optional]
+
+Show me both files before writing.` },
+        { a:'claude-code', t:'<strong>③ Open the decisions log</strong> — append-only record of behavioral deviations.', prompt:`Create /docs/decisions.md:
+
+# Decisions Log
+> Append-only. Format: YYYY-MM-DD — [area] — [what changed] — [why]
+
+YYYY-MM-DD — meta — v1 spec frozen — sources: requirements.md, design_system.md, screen_specs.md
+
+Show me the file before writing.` },
+        { a:'claude-code', t:'<strong>④ Transition CLAUDE.md</strong> — update phase + scope.', prompt:`Update CLAUDE.md:
+- Current phase → "Plan (Phase IV)"
+- Files in scope → add /docs/current/*
+- Files NOT auto-read → add /docs/spec/v1/* (historical reference only)
+
+Show me the diff before writing.` },
+        { a:'you', t:'<strong>Git:</strong> commit the spec freeze and living docs.<br><code>git add /docs/spec/v1/ /docs/current/ /docs/decisions.md CLAUDE.md</code><br><code>git commit -m "freeze v1 spec, init living docs"</code>' }
+      ],
+      artifacts:['gap_analysis.md','current_screens.md','current_features.md','decisions.md']
+    }]
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'IV', name:'Plan', blurb:'Choose the architecture. Decide the strategy. Write the slice tracker.',
+    steps:[{
+      n:9, title:'Plan architecture, build strategy, and create /docs/build_progress.md',
+      actors:['claude-code','you'], badge:'One session',
+      achieves:'Convert the frozen spec into a buildable plan, decide execution strategy, and produce the slice tracker — all in one continuous Claude Code session. Splitting these into separate sessions forces Claude to rebuild context three times and breaks the reasoning chain that informs how slices are sized.',
+      todos:[
+        { a:'you', t:'Start a fresh Claude Code session. Enter plan mode.' },
+        { a:'claude-code', t:'<strong>① Architectural plan</strong> — no files written yet.', prompt:`Based on /docs/spec/v1/, produce a build plan:
+
+1. Architecture — state management, navigation, data layer, persistence, networking. Justify each choice briefly.
+2. Package selection — every pubspec.yaml package, with version and reason. Groups: state mgmt, persistence, networking, UI, utilities, dev/test.
+3. Folder structure — full /lib/ tree with one-line purpose per folder.
+4. Risk list — what's most likely to cause pain. Be specific.
+5. Open questions — anything you need me to clarify before we proceed.
+
+Do not write code. Do not modify any files.` },
+        { a:'you', t:'Review the plan. Push back where it doesn\'t feel right. Iterate until satisfied. <strong>Save the architectural plan to <code>/docs/architecture.md</code> before continuing</strong> — if credits run out mid-session, the next session can resume from this file rather than rebuilding the reasoning from scratch.' },
+        { a:'claude-code', t:'<strong>② Build execution strategy</strong> — shaped by your real constraints.', prompt:`Given that architecture plan and these constraints:
+- Claude Pro plan (limited credits, sessions can end mid-task)
+- Need clean session resumption if credits run out mid-slice
+- Building solo
+
+Advise on:
+1. Slice decomposition — slices that each end in a runnable, demonstrable MVP. Small enough for a focused 2–3 hour session. Estimate file count per slice.
+2. Session continuity — how /docs/build_progress.md should be structured so a new session resumes cleanly with one prompt.
+3. Sub-agents vs. single agent — concrete tradeoffs for this project's complexity.
+4. Anti-patterns to avoid — be direct.` },
+        { a:'you', t:'If context is getting tight at this point, run <code>/compact</code> before continuing.' },
+        { a:'claude-code', t:'<strong>③ Create /docs/build_progress.md and update CLAUDE.md</strong>.', prompt:`Create /docs/build_progress.md with the full slice list in dependency order. For each slice use exactly this format:
+
+### Slice N: [Name]
+> ~XX files | [One-line purpose statement]
+- [ ] Task — [specific file to create or edit]
+- [ ] Task
+- [ ] Verify: [the single command or observation that proves the slice works]
+
+Slice count and ordering should reflect THIS project's actual dependencies — do not copy a generic template. Reference /docs/current/screens.md and /docs/current/features.md for what to build. Reference /docs/spec/v1/ only for original intent.
+
+Then update CLAUDE.md:
+- Current phase → "Build (Phase V)"
+- Current slice → "1"
+- Add /docs/build_progress.md to "Files in scope"
+- Add session rule: "At session start, read CLAUDE.md and /docs/build_progress.md. State the current slice goal before doing anything."
+
+Show me both files before writing.` },
+        { a:'you', t:'<strong>Git:</strong> commit the plan and slice tracker.<br><code>git add /docs/architecture.md /docs/build_progress.md CLAUDE.md</code><br><code>git commit -m "plan: architecture + slice tracker"</code>' },
+        { a:'you', t:'<strong>Note on the build_progress.md template:</strong> the artifact below shows an illustrative 12-slice shape. Slice count and ordering will vary by project — use it as a starting reference for format, not a constraint on count.' }
+      ],
+      artifacts:['build_progress.md','CLAUDE.md']
+    }]
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'V', name:'Build', blurb:'Execute the slices. Sync the docs. Reset the drift periodically.',
+    steps:[{
+      n:10, title:'Build the app slice by slice, keeping docs in sync',
+      actors:['claude-code','you'], badge:'Per session',
+      achieves:'Execute the slice plan session by session. Each session uses the same one-line startup prompt. Each slice ends with a working MVP, a git commit, and synced docs. Every 3–4 slices, a doc-sync regeneration pass catches documentation drift before it silently accumulates into the documentation lies that derailed your last project.',
+      todos:[
+        { a:'claude-code', t:'<strong>Every session start — use this exact prompt, every time:</strong>', prompt:`Read CLAUDE.md and /docs/build_progress.md. Identify the current slice. State the slice goal back to me and list any pre-slice checks, then proceed.` },
+        { a:'you', t:'Work through the slice checkboxes. Manually test the MVP on a real device (not just emulator) before considering the slice done.' },
+        { a:'you', t:'<strong>End of every slice — the ritual (do not skip):</strong><br>① Confirm <code>/docs/current/screens.md</code> reflects what was actually built<br>② Confirm deviations from spec are logged in <code>/docs/decisions.md</code><br>③ Git commit: <code>slice N: [name]</code><br>④ Run <code>/compact</code><br>⑤ Update <code>/docs/build_progress.md</code> current slice<br>⑥ Update CLAUDE.md current slice line' },
+        { a:'claude-code', t:'<strong>Every 3–4 slices — doc-sync drift detection:</strong> walk <code>/lib/</code>, rebuild current docs from actual code, show the diff before applying.', prompt:`Walk /lib/ and rebuild /docs/current/screens.md and /docs/current/features.md from the actual code as it exists right now. Compare against the current file versions. Show me the diff — what would change. Do not apply yet.` },
+        { a:'you', t:'Review the diff. Anything that surprises you is drift you\'d otherwise ship. Apply accepted changes and add an entry to <code>/docs/decisions.md</code>.' }
+      ],
+      artifacts:['build_progress.md','current_screens.md','current_features.md','decisions.md']
+    }]
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'VI', name:'Test & Audit', blurb:'Run the manual rounds. Stress-test. Code-review. Prep for store.',
+    steps:[
+      {
+        n:11, title:'Set up testing files and run manual test rounds',
+        actors:['claude-code','you'], badge:'Combined',
+        achieves:'Transition to testing phase, create the testing log and reusable checklist, then run rounds until clean. The testing log is append-only history; the checklist is re-run fresh each round. Each round: run checklist on real device → log findings → fix → re-test.',
+        todos:[
+          { a:'claude-code', t:'Set up testing files and transition CLAUDE.md to the Test phase.', prompt:`All slices in /docs/build_progress.md are checked off. Transition to Phase VI (Test).
+
+1. Update CLAUDE.md: phase → "Test (Phase VI)". Remove /docs/build_progress.md from required reading. Add /docs/testing.md.
+
+2. Create /docs/testing.md with two parts:
+
+## Round 1 Fixes
+[empty — append fix items per round, each mapped to a file:]
+- [ ] [Fix description] — \`filename.dart\`
+
+## Manual Test Checklist
+[derived from /docs/current/features.md — checkbox items grouped by feature area. Include: Code Quality section (flutter analyze, dart format, flutter test), one section per feature domain, Edge Cases section, Accessibility section (dynamic type, VoiceOver/TalkBack, contrast), Platform-Specific section (iOS min OS, Android back gesture)]` },
+          { a:'you', t:'Run the Manual Test Checklist on real devices. Test on both iOS and Android. For the minimum supported OS version listed in requirements.md: a real device is ideal but a simulator/emulator targeting that OS version is an acceptable substitute — the goal is to catch API-availability and layout-shift regressions, not real-world hardware behavior.' },
+          { a:'you', t:'Log findings in <code>/docs/testing.md</code> as fix items under the current round header: <code>- [ ] [Fix description] — [filename.dart]</code>' },
+          { a:'claude-code', t:'Apply fixes. For behavioral changes: update code AND <code>/docs/current/screens.md</code>, append to <code>/docs/decisions.md</code>.' },
+          { a:'you', t:'Re-test affected items. Open a new round section when starting the next pass. Move to audits when a round completes with no critical findings.' },
+          { a:'you', t:'<strong>Distribute beta builds</strong> via TestFlight (iOS) and Play Console internal testing (Android) during testing rounds. TestFlight is the only path for iOS beta distribution outside of Xcode, so this is required for iOS rather than optional. Capture beta feedback as new round items.' }
+        ],
+        artifacts:['testing.md']
+      },
+      {
+        n:12, title:'Run audit skills in order: stress-test → code-review → store-prep',
+        actors:['claude-code','you'], badge:'Sequential — order matters',
+        achieves:'Three audit skills run in a deliberate sequence. Functional correctness first (stress-test may trigger architectural changes), then quality (code-review may change code structure), then release readiness (store-prep depends on finalized code). Wrong order = redoing work.',
+        todos:[
+          { a:'claude-code', t:'<strong>① flutter-stress-test</strong> — functional edge cases, layout overflows, extreme inputs. Runs first because it can require code changes.', prompt:`Run the flutter-stress-test skill against the current build. Output to /docs/audits/stress-test/YYYY-MM-DD/.` },
+          { a:'you', t:'Triage: must-fix-now / fix-soon / won\'t-fix. Fix all criticals. Re-run if architectural fixes were needed (new dated folder).' },
+          { a:'you', t:'<strong>If audit findings force an architectural change that cascades into the spec</strong> (e.g., stress-test reveals a data model needs restructuring): <code>/docs/spec/v1/</code> stays immutable. Instead, update <code>/docs/current/screens.md</code> and <code>/docs/current/features.md</code> to reflect the new reality, and append a clear entry to <code>/docs/decisions.md</code> describing what changed and why. Major deviations should be noted explicitly as <code>YYYY-MM-DD — architecture — [what changed] — forced by [audit finding]</code>.' },
+          { a:'claude-code', t:'<strong>② flutter-code-review</strong> — quality, architecture, dead code. Runs after runtime correctness is established.', prompt:`Run the flutter-code-review skill against the current build. Output to /docs/audits/code-review/YYYY-MM-DD/. Defer functional bugs (overflow, crashes from extreme inputs) to flutter-stress-test — those should already be resolved.` },
+          { a:'you', t:'Code review is advisory. Fix what matters for this release. Document accepted technical debt in <code>/docs/decisions.md</code>.' },
+          { a:'claude-code', t:'<strong>③ app-store-prep</strong> — metadata, versions, gaps. Runs last on finalized code.', prompt:`Run the app-store-prep skill. Output to /docs/submission/. Read pubspec.yaml, Info.plist, build.gradle for current versions. Read /docs/current/features.md for feature list. Read /docs/spec/v1/requirements.md for original positioning. Produce a gap report of everything missing before submission plus draft metadata and a screenshot brief.` },
+          { a:'you', t:'Fill metadata gaps. Write descriptions and keywords. Take screenshots per the brief. Verify privacy policy and support URLs are live and accessible.' }
+        ],
+        artifacts:[]
+      }
+    ]
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  {
+    num:'VII', name:'Ship', blurb:'Sign the builds. Submit to the stores. Close the loop for next time.',
+    steps:[
+      {
+        n:13, title:'Pre-submission setup, sign builds, and submit to the stores',
+        actors:['you','claude-code'], badge:'Manual',
+        achieves:'Push the build live. App stores require live URLs, signed builds, and incremented version numbers — preparing these once costs hours, missing one costs a rejection cycle that costs days.',
+        todos:[
+          { a:'you', t:'<strong>① Privacy policy and support pages</strong> — both required to be live and accessible before submission. The cheapest path: a free GitHub Pages site.<br><br><strong>Setup steps:</strong><br>1. Create a new public repo, e.g., <code>your-username/app-policies</code><br>2. Add two files: <code>privacy.md</code> and <code>support.md</code><br>3. Enable Pages: repo Settings → Pages → Source: <em>Deploy from a branch</em>, branch: <em>main</em>, folder: <em>/ (root)</em><br>4. After ~1 minute, your URLs are live at:<br>&nbsp;&nbsp;<code>https://your-username.github.io/app-policies/privacy</code><br>&nbsp;&nbsp;<code>https://your-username.github.io/app-policies/support</code><br>5. Add both URLs to your store metadata (App Store Connect → App Privacy + Support URL; Play Console → Store listing + Data safety)' },
+          { a:'claude-code', t:'<strong>Draft the privacy policy and support page</strong> from the app\'s actual data handling.', prompt:`Read /docs/current/features.md and /docs/spec/v1/requirements.md. Draft two files:
+
+1. privacy.md — a privacy policy that accurately describes:
+   - What data the app collects (if any) — be specific per feature
+   - Where it's stored (local-only, cloud, hybrid)
+   - Third parties it's shared with (analytics, crash reporting, etc., or "none")
+   - User rights: how to request data export, how to request account deletion
+   - Contact email for privacy questions
+
+2. support.md — a support page with:
+   - App name and brief description
+   - Contact email for support
+   - FAQ stub (3–5 common questions to expand later)
+   - Known limitations from /docs/decisions.md (accepted technical debt that affects users)
+
+Both should be plain markdown that renders well on GitHub Pages with the default Jekyll theme. Do not invent data collection that doesn't exist in the code. If the app is fully local with no analytics, the privacy policy should say so plainly.` },
+          { a:'you', t:'<strong>② Data export and deletion</strong> — required by Apple App Privacy and Google Data Safety regardless of whether the app has accounts. For a fully local app: state in the privacy policy that the user can export data via the in-app export feature (if one exists) and delete all data by deleting the app or using the in-app "Delete all data" setting. For an app with accounts: implement and document an in-app data export and account deletion flow before submission. If this isn\'t built yet, add a slice for it and return to Phase V.' },
+          { a:'you', t:'<strong>③ Increment version numbers before each build.</strong><br><br><strong>iOS</strong> (<code>ios/Runner/Info.plist</code>):<br><code>&lt;key&gt;CFBundleShortVersionString&lt;/key&gt; → user-visible (e.g., 1.0.0)</code><br><code>&lt;key&gt;CFBundleVersion&lt;/key&gt; → build number, must increment every upload</code><br><br><strong>Android</strong> (<code>android/app/build.gradle</code>):<br><code>versionName "1.0.0" → user-visible</code><br><code>versionCode 1 → integer, must increment every upload</code><br><br>Modern Flutter reads both from <code>pubspec.yaml</code>: <code>version: 1.0.0+1</code> (semantic version + build number). Bump the build number on every upload even for re-submissions — stores reject duplicates.' },
+          { a:'you', t:'<strong>④ Configure signing.</strong><br><br><strong>iOS:</strong> in Xcode, open <code>ios/Runner.xcworkspace</code>, select Runner → Signing & Capabilities → enable Automatic signing with your Apple Developer team. For release builds, generate or select an App Store distribution profile. Apple requires this even for TestFlight.<br><br><strong>Android:</strong> generate an upload keystore once, then reuse it for every release.<br><code>keytool -genkey -v -keystore ~/keys/upload.keystore -alias upload -keyalg RSA -keysize 2048 -validity 10000</code><br>Store the keystore path and passwords in <code>android/key.properties</code> (already in <code>.gitignore</code>). Reference it from <code>android/app/build.gradle</code>. <strong>Never commit the keystore or passwords.</strong> Use Play App Signing — Google holds the app-signing key, you hold the upload key.' },
+          { a:'you', t:'<strong>⑤ Build release artifacts.</strong> You can build locally with Flutter, or hand it to Codemagic for automated CI/CD (recommended once configured — Codemagic handles signing, builds, and store uploads from a YAML config).<br><br><strong>Local builds:</strong><br><code>flutter build ipa --release</code> → produces <code>build/ios/ipa/*.ipa</code> for App Store Connect upload<br><code>flutter build appbundle --release</code> → produces <code>build/app/outputs/bundle/release/app-release.aab</code> for Play Console upload<br><br><strong>Codemagic:</strong> create <code>codemagic.yaml</code> at project root with workflows for iOS and Android. Connect the repo, configure code signing in the Codemagic UI (upload .p12/keystore files there, never to git), and trigger builds on a release branch. Codemagic can auto-publish to TestFlight and Play Console internal testing.' },
+          { a:'you', t:'<strong>⑥ Upload and submit.</strong><br><br><strong>iOS</strong> via Transporter app or <code>xcrun altool</code>: upload the <code>.ipa</code> to App Store Connect. Wait for processing (~10–30 min). Fill metadata from <code>/docs/submission/ios/</code>. Submit for review.<br><br><strong>Android:</strong> upload the <code>.aab</code> to Play Console → Production (or Open Testing first). Fill metadata from <code>/docs/submission/android/</code>. Submit for review.' },
+          { a:'you', t:'<strong>If rejected:</strong> address feedback, increment build number, re-run app-store-prep for the affected items, fix and resubmit.' },
+          { a:'you', t:'<strong>Once approved</strong>, append to <code>/docs/decisions.md</code>:<br><code>YYYY-MM-DD — release — submitted vX.Y.Z to iOS/Android</code><br>Tag the release in git: <code>git tag vX.Y.Z && git push --tags</code>' }
+        ],
+        artifacts:[]
+      },
+      {
+        n:14, title:'Retrospective: what should the next project keep?',
+        actors:['claude-code','you'], badge:'Close the loop',
+        achieves:'The step most people skip — and the reason project N+2 repeats project N\'s mistakes. What was load-bearing? What was busywork? What was missing? This is how the template self-improves project over project.',
+        todos:[
+          { a:'claude-code', t:'After store approval: read all project artifacts and report what was valuable vs. noise.', prompt:`Read /docs/spec/v1/, /docs/current/, /docs/decisions.md, /docs/audits/, and /docs/testing.md.
+
+If we were starting this project over with what we know now:
+1. What is the minimum set of documents that would have produced the same result?
+2. Which documents were load-bearing (Claude would have made wrong decisions without them)?
+3. Which were busywork (created, rarely read, didn't change any decision)?
+4. What was missing that would have saved meaningful time?
+5. Which skill outputs were most valuable? Which were noise?
+
+Save your analysis as /docs/retrospective.md.` },
+          { a:'you', t:'Review the retrospective. Apply concrete improvements to: this playbook HTML, skill files, CLAUDE.md template, hook scripts.' },
+          { a:'you', t:'<strong>Copy the retrospective to your shared retrospectives folder</strong> so it accumulates across projects:<br><code>mkdir -p ~/.claude/retrospectives</code><br><code>cp /docs/retrospective.md ~/.claude/retrospectives/[project-name]-YYYY-MM-DD.md</code><br>This is how the template improves across projects rather than being relearned each time.' },
+          { a:'you', t:'<strong>Before starting project N+1:</strong> read the most recent retrospectives in <code>~/.claude/retrospectives/</code> first. The lessons carry forward only if you actually reread them.' }
+        ],
+        artifacts:['retrospective.md']
+      }
+    ]
+  }
+];
+
+// ─── STATE ───────────────────────────────────────────────────────────
+let openCard = null;
+let modalFile = null;
+
+// ─── HELPERS ─────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;');
+}
+
+function renderTodo(todo) {
+  const isUser = todo.a === 'you';
+  const iconCls = isUser ? 'ti-user' : 'ti-ai';
+  const iconSvg = isUser ? IC.user : IC.robot;
+  const actorLabel = isUser ? 'User'
+    : (todo.a === 'claude-web' ? 'Claude · Web' : 'Claude · Code');
+
+  const promptHtml = todo.prompt ? `
+    <div class="prompt-block">
+      <div class="prompt-tag">Prompt</div>
+      <button class="copy-prompt-btn" onclick="copyPrompt(this,'${encodeURIComponent(todo.prompt)}')">Copy</button>
+      <div class="prompt-text">${esc(todo.prompt)}</div>
+    </div>` : '';
+
+  return `<li class="todo-item">
+    <div class="todo-icon ${iconCls}">${iconSvg}</div>
+    <div class="todo-actor-label">${actorLabel}</div>
+    <div class="todo-content">
+      <div class="todo-text">${todo.t}${promptHtml}</div>
+    </div>
+  </li>`;
+}
+
+function renderArtifacts(arts) {
+  if (!arts || arts.length === 0) {
+    return '<p class="no-artifact">No file artifact produced in this step.</p>';
+  }
+  const chips = arts.map(a => {
+    // a is either a string filename or an {name, note, isImage} object
+    if (typeof a === 'string') {
+      return `<span class="artifact-chip" onclick="openModal('${a}')">
+        ${IC.doc}
+        <span class="artifact-chip-name">${a}</span>
+        <span class="artifact-chip-action">view</span>
+      </span>`;
+    } else {
+      // image artifact — no modal, just a descriptive chip
+      return `<span class="artifact-chip" style="cursor:default">
+        ${IC.image}
+        <span class="artifact-chip-name">${a.name}</span>
+        ${a.note ? '<span class="artifact-chip-note">' + a.note + '</span>' : ''}
+      </span>`;
+    }
+  }).join('');
+  return '<div class="artifacts-row">' + chips + '</div>';
+}
+
+function renderCard(step) {
+  const uniqueActors = [...new Set(step.actors)];
+  const pills = uniqueActors.map(a => {
+    const c = ACTOR_CFG[a];
+    return '<span class="actor-pill ' + c.cls + '">' + IC[c.iconKey] + c.label + '</span>';
+  }).join('');
+
+  const todos = step.todos.map(renderTodo).join('');
+
+  return `<div class="step-card" id="sc-${step.n}">
+    <div class="step-header" onclick="toggleCard('${step.n}')">
+      <span class="step-n">${String(step.n).padStart(2,'0')}</span>
+      <div class="step-header-info">
+        <div class="step-title">${step.title}</div>
+      </div>
+      <span class="step-toggle">${IC.chev}</span>
+    </div>
+    <div class="step-body">
+      <div class="step-body-inner">
+        <div class="sec">
+          <div class="sec-label">What this step achieves</div>
+          <div class="sec-body"><p>${step.achieves}</p></div>
+        </div>
+        <div class="sec">
+          <div class="sec-label">Step-by-step</div>
+          <div class="sec-body"><ul class="todo-list">${todos}</ul></div>
+        </div>
+        <div class="sec">
+          <div class="sec-label">Artifacts produced</div>
+          <div class="sec-body">${renderArtifacts(step.artifacts)}</div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderPhases() {
+  document.getElementById('phases-container').innerHTML = PHASES.map(ph => `
+    <section class="phase">
+      <div class="phase-head">
+        <span class="phase-pill">Phase ${ph.num}</span>
+        <span class="phase-name">${ph.name}</span>
+        <span class="phase-blurb">${ph.blurb}</span>
+      </div>
+      <div class="phase-steps">
+        ${ph.steps.map(renderCard).join('')}
+      </div>
+    </section>`).join('');
+}
+
+// ─── TOGGLE: scroll to card TOP after animation ───────────────────────
+function toggleCard(n) {
+  const el = document.getElementById('sc-' + n);
+  if (openCard === n) {
+    el.classList.remove('open');
+    openCard = null;
+    return;
+  }
+  if (openCard !== null) {
+    const prev = document.getElementById('sc-' + openCard);
+    if (prev) prev.classList.remove('open');
+  }
+  el.classList.add('open');
+  openCard = n;
+
+  // Wait for animation (450ms) then scroll to the TOP of the card
+  // with a small top offset so the phase header remains visible
+  setTimeout(() => {
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.scrollY + rect.top - 80;
+    window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+  }, 460);
+}
+
+// ─── PROMPT COPY ─────────────────────────────────────────────────────
+function srAnnounce(msg) {
+  const sr = document.getElementById('sr-status');
+  if (sr) { sr.textContent = ''; setTimeout(() => { sr.textContent = msg; }, 50); }
+}
+function copyPrompt(btn, encoded) {
+  const txt = decodeURIComponent(encoded);
+  navigator.clipboard.writeText(txt).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    srAnnounce('Prompt copied to clipboard');
+    setTimeout(() => { btn.textContent = orig; }, 1400);
+  });
+}
+
+// ─── MODAL ───────────────────────────────────────────────────────────
+let modalReturnFocus = null;
+function getModalFocusables() {
+  const modal = document.getElementById('modal');
+  return Array.from(modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
+    .filter(el => !el.disabled && el.offsetParent !== null);
+}
+function trapModalFocus(e) {
+  if (e.key !== 'Tab') return;
+  const focusables = getModalFocusables();
+  if (focusables.length === 0) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault(); last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault(); first.focus();
+  }
+}
+function openModal(fname) {
+  const content = ARTIFACT_FILES[fname];
+  if (!content) { alert('Template not found: ' + fname); return; }
+  modalFile = { name: fname, content };
+  modalReturnFocus = document.activeElement;
+  document.getElementById('modal-fname').textContent = fname;
+  document.getElementById('modal-pre').textContent = content;
+  const modal = document.getElementById('modal');
+  modal.classList.add('open');
+  modal.addEventListener('keydown', trapModalFocus);
+  // Move focus into the modal for keyboard/SR users
+  setTimeout(() => { const f = getModalFocusables(); if (f.length) f[0].focus(); }, 50);
+}
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.classList.remove('open');
+  modal.removeEventListener('keydown', trapModalFocus);
+  modalFile = null;
+  // Return focus to the element that opened the modal
+  if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') {
+    modalReturnFocus.focus();
+  }
+  modalReturnFocus = null;
+}
+function copyFile() {
+  if (!modalFile) return;
+  navigator.clipboard.writeText(modalFile.content).then(() => {
+    const b = document.getElementById('btn-copy');
+    b.textContent = 'Copied!';
+    srAnnounce('File contents copied to clipboard');
+    setTimeout(() => { b.textContent = 'Copy'; }, 1400);
+  });
+}
+function downloadFile() {
+  if (!modalFile) return;
+  const blob = new Blob([modalFile.content], { type: 'text/markdown' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = modalFile.name;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  srAnnounce('Download started');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('modal').classList.contains('open')) {
+    closeModal();
+  }
+});
+
+// ─── INIT ────────────────────────────────────────────────────────────
+renderPhases();
+</script>
+</body>
+</html>
